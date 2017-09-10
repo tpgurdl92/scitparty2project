@@ -6,17 +6,37 @@ public class BookVO {
 	private int b_pagenum;
 	private int b_authornum;
 	private String b_writedate;
-	
+	//b_shareox 0이면 '공유안함' 1이면 '공유함'
+	private String b_shareox;
 	
 	public BookVO(){}
 	
-	public BookVO(int b_num, int b_pagenum, int b_authornum, String b_writedate) {
+	
+	
+
+	public BookVO(int b_num, int b_pagenum, int b_authornum, String b_writedate, String b_shareox) {
 		super();
 		this.b_num = b_num;
 		this.b_pagenum = b_pagenum;
 		this.b_authornum = b_authornum;
 		this.b_writedate = b_writedate;
+		this.b_shareox = b_shareox;
 	}
+
+
+
+
+	public String b_getshareOX() {
+		return b_shareox;
+	}
+
+
+
+
+	public void setb_shareOX(String b_shareox) {
+		this.b_shareox = b_shareox;
+	}
+
 
 
 

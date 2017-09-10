@@ -1,4 +1,4 @@
-package cloudnote;
+package cloudnote.VO;
 
 public class BookselfVO {
 

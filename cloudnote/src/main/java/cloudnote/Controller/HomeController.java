@@ -1,4 +1,4 @@
-package scit.project.cloudnote;
+package cloudnote.Controller;
 
 import java.text.DateFormat;
 import java.util.Date;

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+	<typeAlias type="cloudnote.VO.MemberVO" alias="MemberVO"/>
+		<typeAlias type="cloudnote.VO.FriendVO" alias="FriendVO"/>
+	</typeAliases>
+	<mappers>
+		<mapper resource="mapper/usermapper.xml" />
+		<mapper resource="mapper/bookmapper.xml" />
+	</mappers>
+</configuration>

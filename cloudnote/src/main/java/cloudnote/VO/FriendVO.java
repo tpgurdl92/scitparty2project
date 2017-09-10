@@ -1,54 +1,64 @@
 package cloudnote.VO;
 
 public class FriendVO {
-	private int a_request_membernum;
-	private int a_response_membernum;
+	private String a_request_m_id;
+	private String a_response_m_id;
 	private String a_consent;
-	private int b_request_membernum;
-	private int b_response_membernum;
+	private String b_request_m_id;
+	private String b_response_m_id;
 	private String b_consent;
 	
 	public FriendVO(){}
 	
 	
-	public FriendVO(int a_request_membernum, int a_response_membernum, String a_consent, int b_request_membernum,
-			int b_response_membernum, String b_consent) {
+	public FriendVO(String a_request_m_id, String a_response_m_id, String a_consent, String b_request_m_id,
+			String b_response_m_id, String b_consent) {
 		super();
-		this.a_request_membernum = a_request_membernum;
-		this.a_response_membernum = a_response_membernum;
+		this.a_request_m_id = a_request_m_id;
+		this.a_response_m_id = a_response_m_id;
 		this.a_consent = a_consent;
-		this.b_request_membernum = b_request_membernum;
-		this.b_response_membernum = b_response_membernum;
+		this.b_request_m_id = b_request_m_id;
+		this.b_response_m_id = b_response_m_id;
 		this.b_consent = b_consent;
 	}
 
 
 
 
-	public int getA_request_membernum() {
-		return a_request_membernum;
+
+
+	public String getA_request_m_id() {
+		return a_request_m_id;
 	}
 
 
 
 
-	public void setA_request_membernum(int a_request_membernum) {
-		this.a_request_membernum = a_request_membernum;
+
+
+	public void setA_request_m_id(String a_request_m_id) {
+		this.a_request_m_id = a_request_m_id;
 	}
 
 
 
 
-	public int getA_response_membernum() {
-		return a_response_membernum;
+
+
+	public String getA_response_m_id() {
+		return a_response_m_id;
 	}
 
 
 
 
-	public void setA_response_membernum(int a_response_membernum) {
-		this.a_response_membernum = a_response_membernum;
+
+
+	public void setA_response_m_id(String a_response_m_id) {
+		this.a_response_m_id = a_response_m_id;
 	}
+
+
 
 
 
@@ -60,6 +70,8 @@ public class FriendVO {
 
 
 
+
+
 	public void setA_consent(String a_consent) {
 		this.a_consent = a_consent;
 	}
@@ -67,30 +79,40 @@ public class FriendVO {
 
 
 
-	public int getB_request_membernum() {
-		return b_request_membernum;
+
+
+	public String getB_request_m_id() {
+		return b_request_m_id;
 	}
 
 
 
 
-	public void setB_request_membernum(int b_request_membernum) {
-		this.b_request_membernum = b_request_membernum;
+
+
+	public void setB_request_m_id(String b_request_m_id) {
+		this.b_request_m_id = b_request_m_id;
 	}
 
 
 
 
-	public int getB_response_membernum() {
-		return b_response_membernum;
+
+
+	public String getB_response_m_id() {
+		return b_response_m_id;
 	}
 
 
 
 
-	public void setB_response_membernum(int b_response_membernum) {
-		this.b_response_membernum = b_response_membernum;
+
+
+	public void setB_response_m_id(String b_response_m_id) {
+		this.b_response_m_id = b_response_m_id;
 	}
+
+
 
 
 
@@ -102,6 +124,8 @@ public class FriendVO {
 
 
 
+
+
 	public void setB_consent(String b_consent) {
 		this.b_consent = b_consent;
 	}
@@ -109,12 +133,19 @@ public class FriendVO {
 
 
 
+
+
 	@Override
 	public String toString() {
-		return "FriendVO [a_request_membernum=" + a_request_membernum + ", a_response_membernum=" + a_response_membernum
-				+ ", a_consent=" + a_consent + ", b_request_membernum=" + b_request_membernum
-				+ ", b_response_membernum=" + b_response_membernum + ", b_consent=" + b_consent + "]";
+		return "FriendVO [a_request_m_id=" + a_request_m_id + ", a_response_m_id=" + a_response_m_id + ", a_consent="
+				+ a_consent + ", b_request_m_id=" + b_request_m_id + ", b_response_m_id=" + b_response_m_id
+				+ ", b_consent=" + b_consent + "]";
 	}
+
+	
+	
+	
+	
 	
 	
 }
