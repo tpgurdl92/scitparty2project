@@ -46,8 +46,6 @@
   		#{1},
   		#{2},
   		'1',
-  		#{2},
-  		#{1},
   		'0'
   		)
   	</insert>
@@ -56,12 +54,46 @@
   	<select id="searchApp" parameterType="string" resultType="FriendVO">
   		select * from friend
   		where
-  		a_response_m_id=#{m_id} and
+  		b_response_m_id=#{m_id} and
   		a_consent = '1' and
   		b_consent = '0'
   	
   	</select>
   	
+  	<!-- 친구신청 받아주기 -->
+  	<update id="ConsentFriend">
+  		update friend set 
+  		b_consent = '1'
+		where
+		a_request_m_id=#{1} and
+		b_response_m_id=#{2}
+  		
+  	</update>
   	
+  	<!-- 내 친구 리스트 보기 -->
+  	<select id="ShowFriend" parameterType="string"  resultType="String">
+  		select * from
+  		(select * from friend where a_request_m_id =#{m_id} or b_response_m_id=#{m_id})  	
+  		where 
+  		a_consent = '1' and
+  		b_consent = '1'
+  	</select>
+  	
+  	<!-- 친구 삭제하기 -->
+  	<update id="ByeFriend" >
+  	
+  		update friend set
+  		a_consent='0'
+  	    where a_request_m_id=#{1} and b_response_m_id=#{2}
+  		and a_consent ='1' and b_consent='1'
+  		
+  	</update>
+  		
+  	<update id="ByeFriend2">	
+  		update friend set
+  		b_consent='0'
+  		where a_request_m_id=#{2} and b_response_m_id=#{1}
+  		where a_consent ='1' and b_consent='1'
+  	</update>
   	
   </mapper>

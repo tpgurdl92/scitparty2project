@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  
+<mapper namespace="cloudnote.DAO.BookMapper">
+	<select id="GetBookselfList" parameterType="int" resultType="BookselfVO">
+		select * from bookself where
+		bs_memberNum = #{m_num}
+	
+	</select>
+	
+</mapper>
