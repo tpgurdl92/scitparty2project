@@ -12,16 +12,6 @@
 <meta name="author" content="www.365bootstrap.com">
 
 <title>D2</title>
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#flipbook').turn({
-			width : 400,
-			height : 300,
-			autoCenter : true
-		});
-	});
-</script>
 <!-- jQuery -->
 <script src="resources/js/jquery-2.1.1.js"></script>
 <script src="resources/js/masonry.pkgd.min.js"></script>
@@ -68,6 +58,88 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+
+<script type="text/javascript">
+	$(function() {
+		$("#flipbook").turn({
+			width: 1300,
+			height: 700			
+		});
+	});
+</script>
+
+<style>
+body {
+	overflow: hidden;
+}
+
+#flipbook {
+	/* width: 1300px;
+	height: 700px;*/
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto; 
+}
+
+#flipbook .page {
+	width: 400px;
+	height: 300px;
+	background-color: white;
+	line-height: 300px;
+	font-size: 20px;
+	text-align: center;
+}
+
+#flipbook .page-wrapper {
+	-webkit-perspective: 2000px;
+	-moz-perspective: 2000px;
+	-ms-perspective: 2000px;
+	-o-perspective: 2000px;
+	perspective: 2000px;
+}
+
+#flipbook .hard {
+	background: #ccc !important;
+	color: #333;
+	-webkit-box-shadow: inset 0 0 5px #666;
+	-moz-box-shadow: inset 0 0 5px #666;
+	-o-box-shadow: inset 0 0 5px #666;
+	-ms-box-shadow: inset 0 0 5px #666;
+	box-shadow: inset 0 0 5px #666;
+	font-weight: bold;
+}
+
+#flipbook .odd {
+	background: -webkit-gradient(linear, right top, left top, color-stop(0.95, #FFF),
+		color-stop(1, #DADADA));
+	background-image: -webkit-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+	background-image: -moz-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+	background-image: -ms-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+	background-image: -o-linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+	background-image: linear-gradient(right, #FFF 95%, #C4C4C4 100%);
+	-webkit-box-shadow: inset 0 0 5px #666;
+	-moz-box-shadow: inset 0 0 5px #666;
+	-o-box-shadow: inset 0 0 5px #666;
+	-ms-box-shadow: inset 0 0 5px #666;
+	box-shadow: inset 0 0 5px #666;
+}
+
+#flipbook .even {
+	background: -webkit-gradient(linear, left top, right top, color-stop(0.95, #fff),
+		color-stop(1, #dadada));
+	background-image: -webkit-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image: -moz-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image: -ms-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image: -o-linear-gradient(left, #fff 95%, #dadada 100%);
+	background-image: linear-gradient(left, #fff 95%, #dadada 100%);
+	-webkit-box-shadow: inset 0 0 5px #666;
+	-moz-box-shadow: inset 0 0 5px #666;
+	-o-box-shadow: inset 0 0 5px #666;
+	-ms-box-shadow: inset 0 0 5px #666;
+	box-shadow: inset 0 0 5px #666;
+}
+</style>
+
 </head>
 <body>
 	<div id="flipbook">
@@ -80,6 +152,5 @@
 		<div class="hard"></div>
 		<div class="hard"></div>
 	</div>
-
 </body>
 </html>
