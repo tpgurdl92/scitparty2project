@@ -5,10 +5,33 @@
   
   
 <mapper namespace="cloudnote.DAO.BookMapper">
+	<!-- 책장들 가지고오기 -->
 	<select id="GetBookselfList" parameterType="int" resultType="BookselfVO">
 		select * from bookself where
 		bs_memberNum = #{m_num}
 	
 	</select>
+	<!-- 책장안에있는 책들 보기 -->
+	<select id="OpenBookself" parameterType="int" resultType="BookVO">
+		select * from book where
+		b_bookselfnum = #{bookselfnum}
+	</select>
+	<!-- 책 첫 페이지 보기 -->
+	<select id="Openbook"  parameterType="int" resultType="PageVO" >
+		select * from page where
+		p_booknum=#{booknum} and
+		p_pagenum = 1
+	</select>
 	
+	<!-- 페이지 이동 하기 -->
+	<select id="NextPage" resultType="PageVO" >
+		select * from page where
+		p_booknum =#{1} and 
+		p_pagenum =#{2}
+	</select>
+	
+	<!-- 페이지 추가하기 -->
+	<select id="addpage" resultType="PageVO">
+	
+	</select>
 </mapper>

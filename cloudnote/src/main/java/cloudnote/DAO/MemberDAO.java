@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import cloudnote.VO.FriendVO;
 import cloudnote.VO.MemberVO;
 
-;
 
 	
 
@@ -78,4 +77,6 @@ public class MemberDAO {
 		mapper.ByeFriend(m_id, friend_id);
 		mapper.ByeFriend2(m_id, friend_id);
 	}
+	
+	
 }

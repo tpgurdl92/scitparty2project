@@ -4,13 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-	<typeAlias type="cloudnote.VO.MemberVO" alias="MemberVO"/>
+		<typeAlias type="cloudnote.VO.MemberVO" alias="MemberVO"/>
 		<typeAlias type="cloudnote.VO.FriendVO" alias="FriendVO"/>
 		<typeAlias type="cloudnote.VO.BookselfVO" alias="BookselfVO"/>
 		<typeAlias type="cloudnote.VO.BookVO" alias="BookVO"/>
 		<typeAlias type="cloudnote.VO.PageVO" alias="PageVO"/>
 		<typeAlias type="cloudnote.VO.Sharing_bookselfVO" alias="Sharing_bookselfVO"/>
-		<typeAlias type="cloudnote.VO.Writing_room" alias="Writing_room"/>
+		<typeAlias type="cloudnote.VO.Writing_roomVO" alias="Writing_roomVO"/>
 	
 	</typeAliases>
 	<mappers>
