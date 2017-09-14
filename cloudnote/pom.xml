@@ -4,7 +4,6 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.spring</groupId>
 	<artifactId>book</artifactId>
-	<name>bookManagement</name>
 	<packaging>war</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	
@@ -19,9 +18,14 @@
 	<!-- ojdbc6.jar 레퍼런스 주소 -->
 	<repositories>
 		<repository>
+			<id>jitpack.io</id>
+			<url>https://jitpack.io</url>
+		</repository>
+		<repository>
        		<id>codelds</id> 
        		<url>https://code.lds.org/nexus/content/groups/main-repo</url>
 		</repository>
+	
 	</repositories>
 
 	<dependencies>
@@ -172,6 +176,11 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.2</version>
 		</dependency>
+		<dependency>
+			<groupId>org.imgscalr</groupId>
+			<artifactId>imgscalr-lib</artifactId>
+			<version>4.2</version>
+		</dependency>
 				 <!-- WebSocket  -->
     <dependency>
             <groupId>org.springframework</groupId>
@@ -186,7 +195,27 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.3.10.RELEASE</version>
         </dependency>
-      
+      <!-- 이하 오하라 -->
+      <dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>2.53.0</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-remote-driver -->
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-remote-driver</artifactId>
+			<version>2.44.0</version>
+      </dependency>
+     
+      <dependency>
+			<groupId>com.github.detro</groupId>
+			<artifactId>ghostdriver</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		
+		
 	</dependencies>
 	
     <build>
@@ -227,4 +256,6 @@
             </plugin>
         </plugins>
     </build>
+    <name>cloudenote</name>
+    <description>dd</description>
 </project>  

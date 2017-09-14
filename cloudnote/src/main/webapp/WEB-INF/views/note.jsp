@@ -105,7 +105,7 @@
 							<%@include file="viewer.jsp" %>
 						</div>
 						<div style="float:left; width:45% height:45% overflow:scroll;">
-							
+							<%@include file="editor.jsp" %>
 						</div>
 					</div>
 					
