@@ -5,8 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import cloudnote.DAO.MemberDAO;
+import cloudnote.Util.FileService;
 import cloudnote.VO.MemberVO;
 
 @Controller	
@@ -32,12 +34,21 @@ public class JoinController {
 		return result;
 	}
 	
-	
+	String uploadpath ="/profile";
 	@RequestMapping(value="addmember", method = RequestMethod.POST)
-	public String AddMember(MemberVO member){
+	public String AddMember(MemberVO member, MultipartFile upload){
+		
+		if(!upload.isEmpty()){
+			System.out.println("upload 들어옴");
+			String m_savedfilename = FileService.saveFile(upload, uploadpath);
+			member.setM_savedfilename(m_savedfilename);
+			String m_originalfilename = upload.getOriginalFilename();
+			member.setM_originalfilename(m_originalfilename);
+		}
+		System.out.println(member.toString());
 		mdao.AddMember(member);
 		//인터넷창에 완료메세지 띄우는 거 해보기
-		return "home";
+		return "index";
 	}
 	
 	

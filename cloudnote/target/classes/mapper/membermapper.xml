@@ -13,13 +13,15 @@
   	<insert id="AddMember" parameterType="MemberVO">
   		insert into member 
   		values( 
-  		#{m_num},
+  		member_seq.nextval,
   		#{m_id},
   		#{m_password},
   		#{m_name},
   		#{m_phone},
   		#{m_email},
-  		#{m_birthdate} 
+  		#{m_birthdate},
+  		#{m_originalfilename},
+  		#{m_savedfilename} 
   		)
   	</insert>
   	

@@ -8,13 +8,18 @@ public class MemberVO {
 	private String m_phone;
 	private String m_email;
 	private String m_birthdate;
-	
+	private String m_originalfilename;
+	private String m_savedfilename;
 	
 	
 	public MemberVO(){}
+
+
+	
+	//논리명 = 테이블에 대한 설명.
 	
 	public MemberVO(int m_num, String m_id, String m_password, String m_name, String m_phone, String m_email,
-			String m_birthdate) {
+			String m_birthdate, String m_originalfilename, String m_savedfilename) {
 		super();
 		this.m_num = m_num;
 		this.m_id = m_id;
@@ -23,6 +28,8 @@ public class MemberVO {
 		this.m_phone = m_phone;
 		this.m_email = m_email;
 		this.m_birthdate = m_birthdate;
+		this.m_originalfilename = m_originalfilename;
+		this.m_savedfilename = m_savedfilename;
 	}
 
 
@@ -141,11 +148,47 @@ public class MemberVO {
 
 
 
+	public String getM_originalfilename() {
+		return m_originalfilename;
+	}
+
+
+
+
+
+	public void setM_originalfilename(String m_originalfilename) {
+		this.m_originalfilename = m_originalfilename;
+	}
+
+
+
+
+
+	public String getM_savedfilename() {
+		return m_savedfilename;
+	}
+
+
+
+
+
+	public void setM_savedfilename(String m_savedfilename) {
+		this.m_savedfilename = m_savedfilename;
+	}
+
+
+
+
+
 	@Override
 	public String toString() {
 		return "MemberVO [m_num=" + m_num + ", m_id=" + m_id + ", m_password=" + m_password + ", m_name=" + m_name
-				+ ", m_phone=" + m_phone + ", m_email=" + m_email + ", m_birthdate=" + m_birthdate + "]";
+				+ ", m_phone=" + m_phone + ", m_email=" + m_email + ", m_birthdate=" + m_birthdate
+				+ ", m_originalfilename=" + m_originalfilename + ", m_savedfilename=" + m_savedfilename + "]";
 	}
+
+
+	
 	
 	
 	

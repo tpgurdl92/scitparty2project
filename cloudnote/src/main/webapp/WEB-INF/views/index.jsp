@@ -61,8 +61,51 @@
 						<div class="intro-lead-in">Welcome To Cloud Note!</div>
 						<div class="intro-heading">It's Nice To Meet You</div>
 					</div>
-					<a class="btn btn-1 btn-sm" href="join">Join</a> 
-					<a class="btn btn-1 btn-sm" href="login">Login</a>
+					<c:if test="${member!=null }">
+						<div>${member.m_id}님 접속을 환영합니다.</div>
+					</c:if>
+						
+					<c:if test="${member==null }">
+						 <!-- ////////////Content Box 01 -->
+      <section id="services" class="box-content box-1">
+      
+         <div class="container">
+            <div class="row heading">
+               <div class="col-lg-12">
+                  <h2>Login</h2>
+                  <hr>
+                  <div class="intro">Cloud Note</div>
+               </div>
+            </div>
+            <div class="row">
+               <div>
+               	  <form action="login" method="POST" onsubmit="true"> 				
+	                  <table>
+	                     <tr>
+	                        <td><h3 class="blue">Id</h3></td>
+	                        <td><input type="text" id="id" name="m_id"
+	                           placeholder="ID를 입력하세요." /></td>
+	                     </tr>
+	                     <tr>
+	                        <td><h3 class="blue">Password</h3></td>
+	                        <td><input type="text" id="password" name="m_password"
+	                           placeholder="비밀번호를 입력하세요." /></td>
+	                     </tr>
+	                     <tr>
+	                        <td colspan="2">
+	                           <input type="button" class="btn btn-2" value="Join" onclick="javascript:joinForm()" /> <input
+	                           type="submit" class="btn btn-2" value="Login" /></td>
+	                     </tr>
+	                  </table>
+      			</form>
+               </div>
+            </div>
+         </div>
+      </section>
+					</c:if>
+
+					
+					
 				</div>
 			</div>
 		</div>

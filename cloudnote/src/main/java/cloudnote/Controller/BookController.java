@@ -22,6 +22,11 @@ public class BookController {
 	@Autowired
 	BookDAO bdao;
 	
+	@RequestMapping(value="writenote", method=RequestMethod.GET)
+	public String WriteNote(HttpSession session, Model model){
+		return "note";
+	}
+	
 	@RequestMapping(value="bookselflist", method=RequestMethod.GET)
 	public String BookSelfList(HttpSession session,Model model){
 		ArrayList<BookselfVO> bookselflist= bdao.GetBookself(((MemberVO)session.getAttribute("member")).getM_num());

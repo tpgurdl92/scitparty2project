@@ -18,11 +18,15 @@ public class LoginController {
 	
 	@RequestMapping(value="login", method= RequestMethod.POST)
 	public String Login(MemberVO member, HttpSession session){
+		System.out.println(member.toString());
 		member =mdao.Login(member);
-		//메세지 보내기.?
-		session.setAttribute("member", member);
 		
-		return "home";
+		//메세지 보내기.?
+		if(member!=null){
+			session.setAttribute("member", member);
+		}
+		
+		return "index";
 	}
 	
 	

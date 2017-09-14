@@ -32,6 +32,8 @@
 <!-- Js -->
 <script src="resources/js/modernizr.js"></script>
 <script src="/resources/js/total.js"></script>
+<!-- 소켓임포트 -->
+<script type="text/javascript" src="resources/sockjs.js"></script>
 <!-- Modernizr -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -40,6 +42,36 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+    <script type="text/javascript">
+   		 var sock= new SockJS('<c:url value="/echo"/>');
+   		sock.onmessage = onMessage;
+   		
+   	 //evt 파라미터는 websocket이 보내준 데이터다.
+   	    function onMessage(evt){  //변수 안에 function자체를 넣음.
+   	        var data = evt.data;
+   	       
+   	    	$('#kk').html(data);
+   	        /* sock.close(); */
+   	    }
+   	 function onClose(evt){
+         $("#data").append("연결 끊김");
+     }
+     
+   	function startWorker() {
+
+   		
+   		if(window.Worker){
+   	        w = new Worker("./resources/worker.js");
+   	        w.onmessage = function(event) {
+   	        	
+   	        	sock.send(roomNum+"*"+$('#kk').html());
+   	        	      	
+   	        	//$('#dataimg').attr('src', './resources/externalFile.jpg');	
+   	        };
+   	}
+
+    
+    </script>
 </head>
 <body>
 	<!-- /////////////////////////////////////////Navigation -->
@@ -68,54 +100,15 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-sm-3 box-item">
-						<table class="col-sm-3">
-							<tr>
-								<td colspan="2"><h3 class="blue">Id</h3></td>
-								<td>
-									<input type="text" id="id" name="id" placeholder="ID를 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Password</h3></td>
-								<td>
-									<input type="text" id="password" name="password" placeholder="비밀번호를 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Name</h3></td>
-								<td>
-									<input type="text" id="name" name="name" placeholder="이름을 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Birth</h3></td>
-								<td>
-									<input type="text" id="birth" name="birth" placeholder="생년월일를 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Phone</h3></td>
-								<td>
-									<input type="text" id="phone" name="phone" placeholder="연락처를 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Email</h3></td>
-								<td>
-									<input type="email" id="email" name="email" placeholder="Email를 입력하세요." />
-								</td>
-							</tr>
-							<tr>
-								<td colspan="2"><h3 class="blue">Image</h3></td>
-								<td>
-									<input type="file" id="image" name="image" />
-								</td>
-							</tr>
-						</table>
-						<button type="reset" class="btn btn-2" onreset="reset()">Reset</button>
-						<button type="submit" class="btn btn-2">Join</button>
+					<div>
+						<div style="float:left; width:45% height:45% overflow:scroll;">
+							<%@include file="viewer.jsp" %>
+						</div>
+						<div style="float:left; width:45% height:45% overflow:scroll;">
+							
+						</div>
 					</div>
+					
 				</div>
 			</div>
 		</section>
