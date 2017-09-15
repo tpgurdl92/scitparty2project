@@ -40,9 +40,9 @@ public class MemberDAO {
 	 * @param m_id
 	 * @return
 	 */
-	public MemberVO SearchFriend(String m_id){
+	public MemberVO SearchFriend(String searchType, String keyword){
 		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
-		MemberVO member =mapper.SearchFriend(m_id);
+		MemberVO member =mapper.SearchFriend(searchType, keyword);
 		return member;
 	}
 	

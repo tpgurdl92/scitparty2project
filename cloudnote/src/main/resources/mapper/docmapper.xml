@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="cloudnote.DAO.DocMapper">
+  <insert id="DocUpload" parameterType="DocumentVO" >
+  	insert into document values (
+  		document_seq.nextval,
+  		#{d_originalfilename},
+  		#{d_savedfilename},
+  		#{d_m_num}
+  	)
+  </insert>
+  
+  
+  <select id="GetDocList" parameterType="int" resultType="DocumentVO">
+  	select * from document where
+  	d_m_num=#{d_m_num}
+  </select>
+  
+  </mapper>

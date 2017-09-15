@@ -195,6 +195,13 @@
             <artifactId>spring-webmvc</artifactId>
             <version>4.3.10.RELEASE</version>
         </dependency>
+        
+        <!--  fire 베이스 -->
+        <dependency>
+		    <groupId>com.google.firebase</groupId>
+		    <artifactId>firebase-server-sdk</artifactId>
+		    <version>3.0.1</version>
+		</dependency>
       <!-- 이하 오하라 -->
       <dependency>
 			<groupId>org.seleniumhq.selenium</groupId>

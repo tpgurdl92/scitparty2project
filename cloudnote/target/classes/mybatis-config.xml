@@ -11,10 +11,11 @@
 		<typeAlias type="cloudnote.VO.PageVO" alias="PageVO"/>
 		<typeAlias type="cloudnote.VO.Sharing_bookselfVO" alias="Sharing_bookselfVO"/>
 		<typeAlias type="cloudnote.VO.Writing_roomVO" alias="Writing_roomVO"/>
-	
+		<typeAlias type="cloudnote.VO.DocumentVO" alias="DocumentVO"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="mapper/membermapper.xml" />
 		<mapper resource="mapper/bookmapper.xml" />
+		<mapper resource="mapper/docmapper.xml"/>
 	</mappers>
 </configuration>

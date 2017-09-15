@@ -13,7 +13,7 @@ public interface MemberMapper {
 	
 	public MemberVO Login(MemberVO member);
 	
-	public MemberVO SearchFriend(String m_id);
+	public MemberVO SearchFriend(String searchType, String keyword);
 	
 	public void ApplyFriend(String alpplier_id, String friend_id);
 

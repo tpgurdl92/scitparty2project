@@ -33,7 +33,9 @@
 <script src="resources/js/modernizr.js"></script>
 <script src="/resources/js/total.js"></script>
 <!-- 소켓임포트 -->
-<script type="text/javascript" src="resources/sockjs.js"></script>
+<script type="text/javascript" src="resources/sockjs.js"></script>\
+
+
 <!-- Modernizr -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -71,14 +73,23 @@
 				</div>
 				<div class="row">
 					<div>
-						<div style="float:left; width:45%; height:45%; overflow:scroll;">
-							<%@include file="viewer.jsp" %>
-						</div>
-						<div style="float:left; width:5%; height:5%">
-						</div>
-						<div style="float:left; width:45%; height:45%;overflow:scroll;">
-							<%@include file="editor.jsp" %>
-						</div>
+						<table>
+							<tr>	
+								<td>
+									<select id="searchType">
+											<option ${searchType == 'id' ? 'selected = "selected"' : ''} value="id">아이디</option>
+											<option ${searchType == 'name' ? 'selected = "name"' : ''} value="publisher">이름</option>
+											<option ${searchType == 'cellphone' ? 'selected = "selected"' : ''} value="cellphone">핸드폰번호</option>
+									</select>
+								</td>
+								<td>
+									<input type="text" id="keyword"/>
+								</td>
+								<td>
+									<button id="btnSearch">검색</button>
+								</td>
+							</tr>
+						</table>
 					</div>
 					
 				</div>
@@ -103,5 +114,34 @@
 	<script src="resources/js/jquery.easing.min.js"></script>
 	<script src="resources/js/classie.js"></script>
 	<script src="resources/js/cbpAnimatedHeader.js"></script>
+	<script>
+		$(function(){
+			//검색버튼 누르기
+			$('#btnsearch').click(function(){
+				var searchType=$('#searchType').val();
+				var keyword=$('#keyword').val();
+				if(keyword==null){
+					return;
+				}
+				$.ajax({
+					url: 'searchfriend',
+					method: 'get',
+					data:{
+						searchType : searchType,
+						keyword : keyword
+					},
+					success: function (result){
+						
+					}
+					
+				});
+				
+			});
+			
+			
+			
+		});
+	
+	</script>
 </body>
 </html>

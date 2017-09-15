@@ -9615,7 +9615,7 @@ function(t, e, i) {
                         s = i.getAttribute("height"),
                         o = i.hasAttribute("xmlns"),
                         a = i.hasAttribute("viewBox");
-                    if (hasWidthAndHeight = n && s, o || i.setAttribute("xmlns", "http://localhost:8889/editor"), hasWidthAndHeight && (/[^\d]/g.test(n) || /[^\d]/g.test(s)) && (i.setAttribute("width", parseFloat(n)), i.setAttribute("height", parseFloat(s))), !a && hasWidthAndHeight && (i.setAttribute("viewBox", [0, 0, i.getAttribute("width"), i.getAttribute("height")].join(" ")), a = !0), !hasWidthAndHeight && a) {
+                    if (hasWidthAndHeight = n && s, o || i.setAttribute("xmlns", "http://localhost:8889/cloudnote"), hasWidthAndHeight && (/[^\d]/g.test(n) || /[^\d]/g.test(s)) && (i.setAttribute("width", parseFloat(n)), i.setAttribute("height", parseFloat(s))), !a && hasWidthAndHeight && (i.setAttribute("viewBox", [0, 0, i.getAttribute("width"), i.getAttribute("height")].join(" ")), a = !0), !hasWidthAndHeight && a) {
                         var r = i.getAttribute("viewBox").split(" ");
                         4 === r.length && (i.setAttribute("width", r[2]), i.setAttribute("height", r[3]), hasWidthAndHeight = !0)
                     }
@@ -10629,98 +10629,98 @@ function(t, e, i) {
         DEFAULT_DECK_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-deck-thumbnail.png",
         DEFAULT_USER_THUMBNAIL: "https://s3.amazonaws.com/static.slid.es/images/default-profile-picture.png",
         DECK_THUMBNAIL_TEMPLATE: ['<li class="deck-thumbnail">', '<a class="deck-link" href="{{DECK_URL}}"></a>', '<div class="deck-image" style="background-image: url({{DECK_THUMB_URL}})"></div>', '<footer class="deck-details">', '<div class="top">', '<div class="title">{{DECK_TITLE}}</div>', "</div>", '<div class="bottom">', '<a class="author" href="{{USER_URL}}">', '<span class="picture" style="background-image: url({{USER_THUMB_URL}})"></span>', '<span class="name">{{USER_NAME}}</span>', "</a>", '<div class="stats">', '<div>{{DECK_VIEWS}}<span class="icon i-eye"></span></div>', "</div>", "</div>", "</footer>", "</li>"].join(""),
-        AJAX_SEARCH: "/editor/api/v1/search.json",
-        AJAX_SEARCH_ORGANIZATION: "/editor/api/v1/team/search.json",
+        AJAX_SEARCH: "/cloudnote/api/v1/search.json",
+        AJAX_SEARCH_ORGANIZATION: "/cloudnote/api/v1/team/search.json",
         AJAX_GET_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + ".json"
+            return "/cloudnote/api/v1/decks/" + t + ".json"
         },
         AJAX_CREATE_DECK: function() {
-            return "/editor/api/v1/decks.json"
+            return "/cloudnote/api/v1/decks.json"
         },
         AJAX_UPDATE_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + ".json"
+            return "/cloudnote/api/v1/decks/" + t + ".json"
         },
         AJAX_PUBLISH_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/publish.json"
+            return "/cloudnote/api/v1/decks/" + t + "/publish.json"
         },
         AJAX_MAKE_DECK_COLLABORATIVE: function(t) {
-            return "/editor/api/v1/decks/" + t + "/make_collaborative.json"
+            return "/cloudnote/api/v1/decks/" + t + "/make_collaborative.json"
         },
         AJAX_GET_DECK_JSON: function(t, e) {
-            return "/editor/" + t + "/" + e + ".json"
+            return "/cloudnote/" + t + "/" + e + ".json"
         },
         AJAX_GET_DECK_DATA: function(t) {
-            return "/editor/api/v1/decks/" + t + "/data.json"
+            return "/cloudnote/api/v1/decks/" + t + "/data.json"
         },
-        AJAX_GET_DECKS_HTML: "/editor/users/decks.html",
-        AJAX_GET_DECKS_TRASHED_HTML: "/editor/users/decks.html?trashed=true",
+        AJAX_GET_DECKS_HTML: "/cloudnote/users/decks.html",
+        AJAX_GET_DECKS_TRASHED_HTML: "/cloudnote/users/decks.html?trashed=true",
         AJAX_TRASH_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/trash.json"
+            return "/cloudnote/api/v1/decks/" + t + "/trash.json"
         },
         AJAX_RECOVER_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/recover.json"
+            return "/cloudnote/api/v1/decks/" + t + "/recover.json"
         },
         AJAX_DESTROY_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + ".json"
+            return "/cloudnote/api/v1/decks/" + t + ".json"
         },
         AJAX_GET_DECK_VERSIONS: function(t) {
-            return "/editor/api/v1/decks/" + t + "/revisions.json"
+            return "/cloudnote/api/v1/decks/" + t + "/revisions.json"
         },
         AJAX_PREVIEW_DECK_VERSION: function(t, e, i) {
-            return "/editor/" + t + "/" + e + "/preview?revision=" + i
+            return "/cloudnote/" + t + "/" + e + "/preview?revision=" + i
         },
         AJAX_RESTORE_DECK_VERSION: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/revisions/" + e + "/restore.json"
+            return "/cloudnote/api/v1/decks/" + t + "/revisions/" + e + "/restore.json"
         },
         AJAX_EXPORT_DECK: function(t, e) {
-            return "/editor/" + t + "/" + e + "/export"
+            return "/cloudnote/" + t + "/" + e + "/export"
         },
         AJAX_THUMBNAIL_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/thumbnails.json"
+            return "/cloudnote/api/v1/decks/" + t + "/thumbnails.json"
         },
         AJAX_FORK_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/fork.json"
+            return "/cloudnote/api/v1/decks/" + t + "/fork.json"
         },
         AJAX_SHARE_DECK_VIA_EMAIL: function(t) {
-            return "/editor/api/v1/decks/" + t + "/deck_shares.json"
+            return "/cloudnote/api/v1/decks/" + t + "/deck_shares.json"
         },
         AJAX_DECK_STREAM: function(t) {
-            return "/editor/api/v1/decks/" + t + "/stream.json"
+            return "/cloudnote/api/v1/decks/" + t + "/stream.json"
         },
         AJAX_SMS_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/sms.json"
+            return "/cloudnote/api/v1/decks/" + t + "/sms.json"
         },
         AJAX_KUDO_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/kudos/kudo.json"
+            return "/cloudnote/api/v1/decks/" + t + "/kudos/kudo.json"
         },
         AJAX_UNKUDO_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/kudos/unkudo.json"
+            return "/cloudnote/api/v1/decks/" + t + "/kudos/unkudo.json"
         },
         AJAX_EXPORT_START: function(t) {
-            return "/editor/api/v1/decks/" + t + "/exports.json"
+            return "/cloudnote/api/v1/decks/" + t + "/exports.json"
         },
         AJAX_EXPORT_LIST: function(t) {
-            return "/editor/api/v1/decks/" + t + "/exports.json"
+            return "/cloudnote/api/v1/decks/" + t + "/exports.json"
         },
         AJAX_EXPORT_STATUS: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/exports/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/exports/" + e + ".json"
         },
-        AJAX_PDF_IMPORT_NEW: "/editor/api/v1/imports.json",
+        AJAX_PDF_IMPORT_NEW: "/cloudnote/api/v1/imports.json",
         AJAX_PDF_IMPORT_UPLOADED: function(t) {
-            return "/editor/api/v1/imports/" + t + ".json"
+            return "/cloudnote/api/v1/imports/" + t + ".json"
         },
-        AJAX_DROPBOX_CONNECT: "/editor/settings/dropbox/authorize",
+        AJAX_DROPBOX_CONNECT: "/cloudnote/settings/dropbox/authorize",
         AJAX_DROPBOX_DISCONNECT: "https://www.dropbox.com/account/security#apps",
         AJAX_DROPBOX_SYNC_DECK: function(t) {
-            return "/editor/api/v1/decks/" + t + "/export.json"
+            return "/cloudnote/api/v1/decks/" + t + "/export.json"
         },
-        AJAX_UPDATE_TEAM: "/editor/api/v1/team.json",
-        AJAX_LOOKUP_TEAM: "/editor/api/v1/team/lookup.json",
-        AJAX_TEAM_MEMBER_SEARCH: "/editor/api/v1/team/users/search.json",
-        AJAX_TEAM_MEMBERS_LIST: "/editor/api/v1/team/users.json",
-        AJAX_TEAM_MEMBER_CREATE: "/editor/api/v1/team/users.json",
+        AJAX_UPDATE_TEAM: "/cloudnote/api/v1/team.json",
+        AJAX_LOOKUP_TEAM: "/cloudnote/api/v1/team/lookup.json",
+        AJAX_TEAM_MEMBER_SEARCH: "/cloudnote/api/v1/team/users/search.json",
+        AJAX_TEAM_MEMBERS_LIST: "/cloudnote/api/v1/team/users.json",
+        AJAX_TEAM_MEMBER_CREATE: "/cloudnote/api/v1/team/users.json",
         AJAX_TEAM_MEMBER_UPDATE: function(t) {
-            return "/editor/api/v1/team/users/" + t + ".json"
+            return "/cloudnote/api/v1/team/users/" + t + ".json"
         },
         AJAX_TEAM_MEMBER_DELETE: function(t) {
             return "/api/v1/team/users/" + t + ".json"
@@ -10731,73 +10731,73 @@ function(t, e, i) {
         AJAX_TEAM_MEMBER_DEACTIVATE: function(t) {
             return "/api/v1/team/users/" + t + "/deactivate.json"
         },
-        AJAX_TEAM_INVITATIONS_LIST: "/editor/api/v1/team/invitations.json",
-        AJAX_TEAM_INVITATIONS_CREATE: "/editor/api/v1/team/invitations.json",
+        AJAX_TEAM_INVITATIONS_LIST: "/cloudnote/api/v1/team/invitations.json",
+        AJAX_TEAM_INVITATIONS_CREATE: "/cloudnote/api/v1/team/invitations.json",
         AJAX_TEAM_INVITATIONS_DELETE: function(t) {
-            return "/editor/api/v1/team/invitations/" + t + ".json"
+            return "/cloudnote/api/v1/team/invitations/" + t + ".json"
         },
         AJAX_TEAM_INVITATIONS_RESEND: function(t) {
-            return "/editor/api/v1/team/invitations/" + t + "/resend.json"
+            return "/cloudnote/api/v1/team/invitations/" + t + "/resend.json"
         },
-        AJAX_THEMES_LIST: "/editor/api/v1/themes.json",
-        AJAX_THEMES_CREATE: "/editor/api/v1/themes.json",
+        AJAX_THEMES_LIST: "/cloudnote/api/v1/themes.json",
+        AJAX_THEMES_CREATE: "/cloudnote/api/v1/themes.json",
         AJAX_THEMES_READ: function(t) {
-            return "/editor/api/v1/themes/" + t + ".json"
+            return "/cloudnote/api/v1/themes/" + t + ".json"
         },
         AJAX_THEMES_UPDATE: function(t) {
-            return "/editor/api/v1/themes/" + t + ".json"
+            return "/cloudnote/api/v1/themes/" + t + ".json"
         },
         AJAX_THEMES_DELETE: function(t) {
-            return "/editor/api/v1/themes/" + t + ".json"
+            return "/cloudnote/api/v1/themes/" + t + ".json"
         },
         AJAX_DECK_THEME: function(t) {
-            return "/editor/api/v1/decks/" + t + "/theme.json"
+            return "/cloudnote/api/v1/decks/" + t + "/theme.json"
         },
         AJAX_THEME_ADD_SLIDE_TEMPLATE: function(t) {
-            return "/editor/api/v1/themes/" + t + "/add_slide_template.json"
+            return "/cloudnote/api/v1/themes/" + t + "/add_slide_template.json"
         },
         AJAX_THEME_REMOVE_SLIDE_TEMPLATE: function(t) {
-            return "/editor/api/v1/themes/" + t + "/remove_slide_template.json"
+            return "/cloudnote/api/v1/themes/" + t + "/remove_slide_template.json"
         },
         AJAX_ACCESS_TOKENS_LIST: function(t) {
-            return "/editor/api/v1/decks/" + t + "/access_tokens.json"
+            return "/cloudnote/api/v1/decks/" + t + "/access_tokens.json"
         },
         AJAX_ACCESS_TOKENS_CREATE: function(t) {
-            return "/editor/api/v1/decks/" + t + "/access_tokens.json"
+            return "/cloudnote/api/v1/decks/" + t + "/access_tokens.json"
         },
         AJAX_ACCESS_TOKENS_UPDATE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/access_tokens/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/access_tokens/" + e + ".json"
         },
         AJAX_ACCESS_TOKENS_DELETE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/access_tokens/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/access_tokens/" + e + ".json"
         },
         AJAX_ACCESS_TOKENS_PASSWORD_AUTH: function(t) {
             return "/access_tokens/" + t + ".json"
         },
-        AJAX_SLIDE_TEMPLATES_LIST: "/editor/api/v1/slide_templates.json",
-        AJAX_SLIDE_TEMPLATES_CREATE: "/editor/api/v1/slide_templates.json",
+        AJAX_SLIDE_TEMPLATES_LIST: "/cloudnote/api/v1/slide_templates.json",
+        AJAX_SLIDE_TEMPLATES_CREATE: "/cloudnote/api/v1/slide_templates.json",
         AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
-            return "/editor/api/v1/slide_templates/" + t + ".json"
+            return "/cloudnote/api/v1/slide_templates/" + t + ".json"
         },
         AJAX_SLIDE_TEMPLATES_DELETE: function(t) {
-            return "/editor/api/v1/slide_templates/" + t + ".json"
+            return "/cloudnote/api/v1/slide_templates/" + t + ".json"
         },
-        AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/editor/api/v1/team/slide_templates.json",
-        AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/editor/api/v1/team/slide_templates.json",
+        AJAX_TEAM_SLIDE_TEMPLATES_LIST: "/cloudnote/api/v1/team/slide_templates.json",
+        AJAX_TEAM_SLIDE_TEMPLATES_CREATE: "/cloudnote/api/v1/team/slide_templates.json",
         AJAX_TEAM_SLIDE_TEMPLATES_UPDATE: function(t) {
-            return "/editor/api/v1/team/slide_templates/" + t + ".json"
+            return "/cloudnote/api/v1/team/slide_templates/" + t + ".json"
         },
         AJAX_TEAM_SLIDE_TEMPLATES_DELETE: function(t) {
-            return "/editor/api/v1/team/slide_templates/" + t + ".json"
+            return "/cloudnote/api/v1/team/slide_templates/" + t + ".json"
         },
         AJAX_GET_USER: function(t) {
-            return "/editor/api/v1/users/" + t + ".json"
+            return "/cloudnote/api/v1/users/" + t + ".json"
         },
-        AJAX_LOOKUP_USER: "/editor/api/v1/users/lookup.json",
-        AJAX_SERVICES_USER: "/editor/api/v1/users/services.json",
+        AJAX_LOOKUP_USER: "/cloudnote/api/v1/users/lookup.json",
+        AJAX_SERVICES_USER: "/cloudnote/api/v1/users/services.json",
         AJAX_UPDATE_USER: "/users.json",
-        AJAX_GET_USER_SETTINGS: "/editor/api/v1/user_settings.json",
-        AJAX_UPDATE_USER_SETTINGS: "/editor/api/v1/user_settings.json",
+        AJAX_GET_USER_SETTINGS: "/cloudnote/api/v1/user_settings.json",
+        AJAX_UPDATE_USER_SETTINGS: "/cloudnote/api/v1/user_settings.json",
         AJAX_SUBSCRIPTIONS: "/subscriptions",
         AJAX_ACCOUNT_DETAILS: "/account/details.json",
         AJAX_SUBSCRIPTION_DETAILS: "/account/subscription.json",
@@ -10807,97 +10807,97 @@ function(t, e, i) {
         AJAX_SUBSCRIPTIONS_REACTIVATE: "/subscriptions/reactivate",
         AJAX_TEAMS_CREATE: "/teams.json",
         AJAX_TEAMS_REACTIVATE: "/subscriptions/reactivate.json",
-        AJAX_CHECK_STATUS: "/editor/api/v1/status.json",
-        AJAX_CHECK_URL: "/editor/api/v1/urls",
-        AJAX_MEDIA_LIST: "/editor/api/v1/media.json",
-        AJAX_MEDIA_CREATE: "/editor/api/v1/media.json",
+        AJAX_CHECK_STATUS: "/cloudnote/api/v1/status.json",
+        AJAX_CHECK_URL: "/cloudnote/api/v1/urls",
+        AJAX_MEDIA_LIST: "/cloudnote/api/v1/media.json",
+        AJAX_MEDIA_CREATE: "/cloudnote/api/v1/media.json",
         AJAX_MEDIA_READ: function(t) {
-            return "/editor/api/v1/media/" + t + ".json"
+            return "/cloudnote/api/v1/media/" + t + ".json"
         },
         AJAX_MEDIA_UPDATE: function(t) {
-            return "/editor/api/v1/media/" + t + ".json"
+            return "/cloudnote/api/v1/media/" + t + ".json"
         },
         AJAX_MEDIA_DELETE: function(t) {
-            return "/editor/api/v1/media/" + t + ".json"
+            return "/cloudnote/api/v1/media/" + t + ".json"
         },
-        AJAX_MEDIA_USAGE: "/editor/api/v1/media/usage.json",
-        AJAX_MEDIA_TAG_LIST: "/editor/api/v1/tags.json",
-        AJAX_MEDIA_TAG_CREATE: "/editor/api/v1/tags.json",
+        AJAX_MEDIA_USAGE: "/cloudnote/api/v1/media/usage.json",
+        AJAX_MEDIA_TAG_LIST: "/cloudnote/api/v1/tags.json",
+        AJAX_MEDIA_TAG_CREATE: "/cloudnote/api/v1/tags.json",
         AJAX_MEDIA_TAG_UPDATE: function(t) {
-            return "/editor/api/v1/tags/" + t + ".json"
+            return "/cloudnote/api/v1/tags/" + t + ".json"
         },
         AJAX_MEDIA_TAG_DELETE: function(t) {
-            return "/editor/api/v1/tags/" + t + ".json"
+            return "/cloudnote/api/v1/tags/" + t + ".json"
         },
         AJAX_MEDIA_TAG_ADD_MEDIA: function(t) {
-            return "/editor/api/v1/tags/" + t + "/add_media.json"
+            return "/cloudnote/api/v1/tags/" + t + "/add_media.json"
         },
         AJAX_MEDIA_TAG_REMOVE_MEDIA: function(t) {
-            return "/editor/api/v1/tags/" + t + "/remove_media.json"
+            return "/cloudnote/api/v1/tags/" + t + "/remove_media.json"
         },
-        AJAX_TEAM_MEDIA_LIST: "/editor/api/v1/team/media.json",
-        AJAX_TEAM_MEDIA_CREATE: "/editor/api/v1/team/media.json",
+        AJAX_TEAM_MEDIA_LIST: "/cloudnote/api/v1/team/media.json",
+        AJAX_TEAM_MEDIA_CREATE: "/cloudnote/api/v1/team/media.json",
         AJAX_TEAM_MEDIA_READ: function(t) {
-            return "/editor/api/v1/team/media/" + t + ".json"
+            return "/cloudnote/api/v1/team/media/" + t + ".json"
         },
         AJAX_TEAM_MEDIA_UPDATE: function(t) {
-            return "/editor/api/v1/team/media/" + t + ".json"
+            return "/cloudnote/api/v1/team/media/" + t + ".json"
         },
         AJAX_TEAM_MEDIA_DELETE: function(t) {
-            return "/editor/api/v1/team/media/" + t + ".json"
+            return "/cloudnote/api/v1/team/media/" + t + ".json"
         },
-        AJAX_TEAM_MEDIA_TAG_LIST: "/editor/api/v1/team/tags.json",
-        AJAX_TEAM_MEDIA_TAG_CREATE: "/editor/api/v1/team/tags.json",
+        AJAX_TEAM_MEDIA_TAG_LIST: "/cloudnote/api/v1/team/tags.json",
+        AJAX_TEAM_MEDIA_TAG_CREATE: "/cloudnote/api/v1/team/tags.json",
         AJAX_TEAM_MEDIA_TAG_UPDATE: function(t) {
-            return "/editor/api/v1/team/tags/" + t + ".json"
+            return "/cloudnote/api/v1/team/tags/" + t + ".json"
         },
         AJAX_TEAM_MEDIA_TAG_DELETE: function(t) {
-            return "/editor/api/v1/team/tags/" + t + ".json"
+            return "/cloudnote/api/v1/team/tags/" + t + ".json"
         },
         AJAX_TEAM_MEDIA_TAG_ADD_MEDIA: function(t) {
-            return "/editor/api/v1/team/tags/" + t + "/add_media.json"
+            return "/cloudnote/api/v1/team/tags/" + t + "/add_media.json"
         },
         AJAX_TEAM_MEDIA_TAG_REMOVE_MEDIA: function(t) {
-            return "/editor/api/v1/team/tags/" + t + "/remove_media.json"
+            return "/cloudnote/api/v1/team/tags/" + t + "/remove_media.json"
         },
         AJAX_DECKUSER_LIST: function(t) {
-            return "/editor/api/v1/decks/" + t + "/users.json"
+            return "/cloudnote/api/v1/decks/" + t + "/users.json"
         },
         AJAX_DECKUSER_READ: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/users/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/" + e + ".json"
         },
         AJAX_DECKUSER_CREATE: function(t) {
-            return "/editor/api/v1/decks/" + t + "/users/invite.json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/invite.json"
         },
         AJAX_DECKUSER_UPDATE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/users/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/" + e + ".json"
         },
         AJAX_DECKUSER_DELETE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/users/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/" + e + ".json"
         },
         AJAX_DECKUSER_BECOME_EDITOR: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/users/" + e + "/become_editor.json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/" + e + "/become_editor.json"
         },
         AJAX_DECKUSER_UPDATE_LAST_SEEN_AT: function(t) {
-            return "/editor/api/v1/decks/" + t + "/users/update_last_seen_at.json"
+            return "/cloudnote/api/v1/decks/" + t + "/users/update_last_seen_at.json"
         },
         AJAX_COMMENTS_LIST: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/comments.json" + (e ? "?slide_hash=" + e : "")
+            return "/cloudnote/api/v1/decks/" + t + "/comments.json" + (e ? "?slide_hash=" + e : "")
         },
         AJAX_COMMENTS_CREATE: function(t) {
-            return "/editor/api/v1/decks/" + t + "/comments.json"
+            return "/cloudnote/api/v1/decks/" + t + "/comments.json"
         },
         AJAX_COMMENTS_UPDATE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/comments/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/comments/" + e + ".json"
         },
         AJAX_COMMENTS_DELETE: function(t, e) {
-            return "/editor/api/v1/decks/" + t + "/comments/" + e + ".json"
+            return "/cloudnote/api/v1/decks/" + t + "/comments/" + e + ".json"
         },
         STREAM_ENGINE_HOST: window.location.protocol + "//stream2.slides.com",
         STREAM_ENGINE_LIVE_NAMESPACE: "live",
         STREAM_ENGINE_EDITOR_NAMESPACE: "editor",
         APP_HOST: "CLOUD-NOTE",
-        S3_HOST: "https://localhost:8889/editor/media_upload",
+        S3_HOST: "https://localhost:8889/cloudnote/media_upload",
         GOOGLE_FONTS_LIST: "https://www.googleapis.com/webfonts/v1/Fwebfonts?key=AIzaSyAD1SV55vtPn4d37DWGvPg8iUKhMj2Epzo",
         ASSET_URLS: {
             "offline-v2.css": "//assets.slid.es/assets/offline-v2-b4b5a37af2a8925664f8b96d9cbc9113.css",

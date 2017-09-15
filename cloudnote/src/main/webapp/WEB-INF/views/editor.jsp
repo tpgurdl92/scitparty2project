@@ -1590,8 +1590,8 @@
 					data-tooltip="Load custom fonts">
 					<span class="icon i-type"></span>
 				</button>
-			</div>
-		</header>
+			</header>
+		</div>
 		<div class="contents">
 			<div id="ace-less" class="editor"></div>
 			<div class="error"></div>
@@ -1602,7 +1602,7 @@
 		</footer>
 		<div class="resizer"></div>
 	</div>
-	<div class="toolbars visible">
+	<div class="toolbars visible" style="position:relative; top:0px; left:0px">
 		<div class="toolbars-inner">
 			<div class="toolbars-scroller" style="transform: translateX(0px);">
 				<div class="toolbar visible" data-type="add" style="left: 0px;">

@@ -22,10 +22,10 @@ public class FriendController {
 	MemberDAO mdao;
 	
 	@RequestMapping(value="searchfriend", method=RequestMethod.GET)
-	public String SearchFriend(Model model,HttpSession session, String m_id){
-		MemberVO friend=mdao.SearchFriend(m_id);
-		model.addAttribute("frined", friend);
-		return "";
+	public @ResponseBody MemberVO SearchFriend(Model model,HttpSession session, String searchType, String keyword){
+		MemberVO friend=mdao.SearchFriend(searchType, keyword);
+		
+		return friend;
 	}
 	
 	/**
