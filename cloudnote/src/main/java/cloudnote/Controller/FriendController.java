@@ -23,7 +23,7 @@ public class FriendController {
 	
 	@RequestMapping(value="searchfriend", method=RequestMethod.GET)
 	public @ResponseBody MemberVO SearchFriend(Model model,HttpSession session, String searchType, String keyword){
-		MemberVO friend=mdao.SearchFriend(searchType, keyword);
+		MemberVO friend= mdao.SearchFriend(searchType, keyword);
 		
 		return friend;
 	}
