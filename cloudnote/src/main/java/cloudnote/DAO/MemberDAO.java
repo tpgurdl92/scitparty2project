@@ -1,6 +1,7 @@
 package cloudnote.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,9 +41,9 @@ public class MemberDAO {
 	 * @param m_id
 	 * @return
 	 */
-	public MemberVO SearchFriend(String searchType, String keyword){
+	public MemberVO SearchFriend(HashMap<String, String> put){
 		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
-		MemberVO member =mapper.SearchFriend(searchType, keyword);
+		MemberVO member =mapper.SearchFriend(put);
 		return member;
 	}
 	

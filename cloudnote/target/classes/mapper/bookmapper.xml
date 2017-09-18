@@ -5,6 +5,13 @@
   
   
 <mapper namespace="cloudnote.DAO.BookMapper">
+	<!-- 유저번호로 업데이트 책 가져오기 -->
+	<select id="GetBookList" parameterType="int"  resultType="BookVO">
+		select * from book where 
+		b_authornum = #{m_num}
+	
+	</select>
+	
 	<!-- 책장들 가지고오기 -->
 	<select id="GetBookselfList" parameterType="int" resultType="BookselfVO">
 		select * from bookself where

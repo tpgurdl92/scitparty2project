@@ -9,4 +9,6 @@ public interface DocMapper {
 	public void DocUpload(DocumentVO doc);
 	
 	public ArrayList<DocumentVO> GetDocList(int d_m_num);
+	
+	public DocumentVO GetSelectedDoc(DocumentVO doc);
 }

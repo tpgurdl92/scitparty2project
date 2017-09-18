@@ -1,6 +1,7 @@
 package cloudnote.DAO;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import cloudnote.VO.FriendVO;
 import cloudnote.VO.MemberVO;
@@ -13,7 +14,7 @@ public interface MemberMapper {
 	
 	public MemberVO Login(MemberVO member);
 	
-	public MemberVO SearchFriend(String searchType, String keyword);
+	public MemberVO SearchFriend(HashMap<String, String> put);
 	
 	public void ApplyFriend(String alpplier_id, String friend_id);
 

@@ -34,19 +34,29 @@
   	</select>
   	
   	<!-- 친구 찾기(id) -->
-  	<select id="SearchFriend" parameterType="String" resultType="MemberVO">
-  		select * from member
-  		where
-  		m_id=#{m_id}
-  	</select>
+  	 <select id="SearchFriend" parameterType="map" resultType="MemberVO">
+  		select * from member where
+  		<choose>
+  			<when test ="searchType== 'id'">
+  				m_id 
+  			</when>
+  			<when test="searchType== '이름'">
+  				m_name 
+  			</when>
+  			<when test="searchType== 'cellphone'">
+ 				m_phone 				
+  			</when>
+  		</choose>
+  		=#{keyword}
+  	</select> 
   
   
   	<!-- 친구 추가 -->
-  	<insert id="ApplyFriend">
+  	<insert id="ApplyFriend" parameterType="string">
   		insert into friend
   		values(
+  		#{0},
   		#{1},
-  		#{2},
   		'1',
   		'0'
   		)

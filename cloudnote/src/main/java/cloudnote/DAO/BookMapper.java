@@ -8,6 +8,8 @@ import cloudnote.VO.PageVO;
 
 public interface BookMapper {
 
+	public ArrayList<BookVO> GetBookList(int m_num);
+	
 	public ArrayList<BookselfVO> GetBookself(int m_num);
 	
 	public ArrayList<BookVO> OpenBookself(int bookselfnum);
@@ -15,5 +17,7 @@ public interface BookMapper {
 	public PageVO OpenBook(int booknum);
 	
 	public PageVO NextPage(int booknum, int pagenum);
+	
+
 	
 }

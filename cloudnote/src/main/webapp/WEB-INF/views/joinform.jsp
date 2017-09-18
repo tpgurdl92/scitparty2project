@@ -32,7 +32,35 @@
 <!-- Js -->
 <script src="resources/js/modernizr.js"></script>
 <script src="/resources/js/total.js"></script>
+
 <!-- Modernizr -->
+<!-- 이하 세혁 -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type="text/javascript">
+        $(document).ready(function() {
+            $("#imgInp").on('change', function(){
+               	alert('액션리슨');
+            	readURL(this);
+            });
+        });
+
+        function readURL(input) {
+           	alert('들ㅇ어ㅗㅁ');
+        	if (input.files && input.files[0]) {
+            var reader = new FileReader();
+		
+            reader.onload = function (e) {
+                    $('#blah').attr('src', e.target.result);
+                }
+
+              reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+
+    </script>
+
+
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -110,7 +138,12 @@
 								<tr>
 									<td colspan="2"><h3 class="blue">Image</h3></td>
 									<td>
-										<input type="file" id="image" name="upload" />
+										<input type="file" id="imgInp" name="upload" />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										  <img id="blah" src="http://cuteprofilephotos.com/pictures/no-profile--picture-for-pinterest-2-197a6.jpg" alt="your image" />
 									</td>
 								</tr>
 							</table>

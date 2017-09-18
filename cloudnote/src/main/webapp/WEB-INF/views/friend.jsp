@@ -73,25 +73,55 @@
 				</div>
 				<div class="row">
 					<div>
-						<table>
-							<tr>	
-								<td>
-									<select id="searchType">
-											<option ${searchType == 'id' ? 'selected = "selected"' : ''} value="id">아이디</option>
-											<option ${searchType == 'name' ? 'selected = "name"' : ''} value="publisher">이름</option>
-											<option ${searchType == 'cellphone' ? 'selected = "selected"' : ''} value="cellphone">핸드폰번호</option>
-									</select>
-								</td>
-								<td>
-									<input type="text" id="keyword"/>
-								</td>
-								<td>
-									<button id="btnSearch">검색</button>
-								</td>
-							</tr>
-						</table>
+						<form action="searchfriend" method="get">
+							<table id="table">
+								<tr>	
+									<td>
+										<select id="searchType" name="searchType">
+												<option ${searchType == 'id' ? 'selected = "selected"' : ''} value="id">아이디</option>
+												<option ${searchType == 'name' ? 'selected = "name"' : ''} value="publisher">이름</option>
+												<option ${searchType == 'cellphone' ? 'selected = "selected"' : ''} value="cellphone">핸드폰번호</option>
+										</select>
+									</td>
+									<td>
+										<input type="text" id="keyword" name="keyword"/>
+									</td>
+									<td>
+										<input type="submit" id="btnSearch" value="검색"/>
+									</td>
+									 
+								</tr>
+								
+							</table>
+						</form>
 					</div>
-					
+						<c:if test="${friend==null }">
+							검색 결과가 없습니다.
+						</c:if>
+						<c:if test="${friend!=null }">
+							${friend.m_name}
+							<img src="./resources/profileimage/${friend.m_savedfilename}" style="width:200px; height:200px">
+								<button id="appbutton" onclick="friendapply('${friend.m_id}')">친구신청 </button>
+								<div>
+									<c:if test="${booklist!=null }">
+										<h3>최근 업데이트 목록</h3>
+										<table>
+											<tr>
+												<c:forEach var="book" items="${booklist}">
+													<td>
+														<div>
+															<a href="#"><img src="./resources/images/book-icon_1.png"></a>
+															<h5>${book.b_title}</h5>
+														</div>				
+									
+													</td>
+												</c:forEach>
+												
+											</tr>
+										</table>						
+									</c:if>
+								</div>	
+						</c:if>
 				</div>
 			</div>
 		</section>
@@ -117,31 +147,30 @@
 	<script>
 		$(function(){
 			//검색버튼 누르기
-			$('#btnsearch').click(function(){
-				var searchType=$('#searchType').val();
-				var keyword=$('#keyword').val();
-				if(keyword==null){
-					return;
-				}
-				$.ajax({
-					url: 'searchfriend',
-					method: 'get',
-					data:{
-						searchType : searchType,
-						keyword : keyword
-					},
-					success: function (result){
-						
-					}
-					
-				});
+			$('#btnSearch').click(function(){
+				
 				
 			});
 			
 			
-			
 		});
-	
+		
+		//친구신청
+		function friendapply(friend_id){
+			alert('일단드루와');
+			
+			alert(friend_id);
+			$.ajax({
+				url: "applyfriend",
+				method: "get",
+				data:{
+					friend_id: friend_id
+				},
+				success: function (result){
+					$('#appbutton').text('신청완료');
+				}
+			});
+		}
 	</script>
 </body>
 </html>

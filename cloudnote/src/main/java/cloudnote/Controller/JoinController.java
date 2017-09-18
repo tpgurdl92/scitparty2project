@@ -34,7 +34,7 @@ public class JoinController {
 		return result;
 	}
 	
-	String uploadpath ="/profile";
+	String uploadpath ="/Users/박세혁/git/scitparty2project/cloudnote/src/main/webapp/resources/profileimage";
 	@RequestMapping(value="addmember", method = RequestMethod.POST)
 	public String AddMember(MemberVO member, MultipartFile upload){
 		

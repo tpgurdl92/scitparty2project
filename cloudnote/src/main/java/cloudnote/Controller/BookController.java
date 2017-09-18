@@ -24,7 +24,7 @@ public class BookController {
 	
 	@RequestMapping(value="writenote", method=RequestMethod.GET)
 	public String WriteNote(HttpSession session, Model model){
-		return "note";
+		return "redirect:getdoclist";
 	}
 	
 	@RequestMapping(value="bookselflist", method=RequestMethod.GET)

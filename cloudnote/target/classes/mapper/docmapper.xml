@@ -18,4 +18,11 @@
   	d_m_num=#{d_m_num}
   </select>
   
+  <!-- 선택문서 객체 가져오기 -->
+  <select id="GetSelectedDoc" parameterType="DocumentVO" resultType="DocumentVO">
+  	select * from document where
+  	d_m_num=#{d_m_num} and
+  	d_originalfilename = #{d_originalfilename}
+  </select>
+  
   </mapper>

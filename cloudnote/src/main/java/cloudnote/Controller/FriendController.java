@@ -1,6 +1,7 @@
 package cloudnote.Controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cloudnote.DAO.BookDAO;
 import cloudnote.DAO.MemberDAO;
+import cloudnote.VO.BookVO;
 import cloudnote.VO.FriendVO;
 import cloudnote.VO.MemberVO;
 
@@ -20,12 +23,23 @@ public class FriendController {
 
 	@Autowired
 	MemberDAO mdao;
+	@Autowired
+	BookDAO bdao;
 	
 	@RequestMapping(value="searchfriend", method=RequestMethod.GET)
-	public @ResponseBody MemberVO SearchFriend(Model model,HttpSession session, String searchType, String keyword){
-		MemberVO friend= mdao.SearchFriend(searchType, keyword);
-		
-		return friend;
+	public String SearchFriend(Model model,HttpSession session, String searchType, String keyword){
+		System.out.println(searchType+"   "+keyword);
+		HashMap<String, String> put =new HashMap<String, String>();
+		put.put("searchType", searchType);
+		put.put("keyword", keyword);
+		MemberVO friend=mdao.SearchFriend(put);
+		model.addAttribute("friend", friend);
+		if(friend!=null){
+			System.out.println(friend.getM_num()+"친구번호");
+		ArrayList<BookVO> booklist= bdao.GetBookList(friend.getM_num());
+		model.addAttribute("booklist", booklist);
+		}
+		return "friend";
 	}
 	
 	/**
@@ -36,11 +50,13 @@ public class FriendController {
 	 */
 	@RequestMapping(value="applyfriend", method=RequestMethod.GET)
 	public @ResponseBody String ApplyFriend(HttpSession session, String friend_id){
-
-		String applier_id=session.getId();
+		
+		String applier_id=((MemberVO)session.getAttribute("member")).getM_id();
+		
+		System.out.println(applier_id +"  "+friend_id);
 		mdao.ApplyFriend(applier_id, friend_id);
 		
-		return "신청완료";
+		return friend_id;
 	}
 	/**
 	 * 

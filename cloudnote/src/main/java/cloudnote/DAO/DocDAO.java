@@ -26,4 +26,11 @@ public class DocDAO {
 		ArrayList<DocumentVO> doclist =mapper.GetDocList(d_m_num);
 		return doclist;
 	}
+	
+	public DocumentVO GetSelectedDoc(DocumentVO doc){
+		DocMapper mapper =sqlsession.getMapper(DocMapper.class);
+		DocumentVO rdoc = mapper.GetSelectedDoc(doc);
+		return rdoc;
+		
+	}
 }

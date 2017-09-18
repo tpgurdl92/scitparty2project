@@ -29,7 +29,7 @@
 		$('#fileselect').change(function(){
 			var selected = $(this).val();
 			alert(selected);
-			location.href="getselectedfile1?filename="+selected;
+			location.href="getselectedfile1?d_originalfilename="+selected;
 			 /* $.ajax({
 				url: 'getselectedfile',
 				mehtod: 'get',
@@ -67,25 +67,42 @@
 			});
 	}
 
+//텍스트가져오기
+function selectText() {
+    var selectionText = "";
+    
+    if (document.getSelection) {
+        selectionText = document.getElementById('#viewr').getSelection();
+    } else if (document.selection) {
+       
+    	selectionText = document.getElementById('#viewr').selection.createRange().text;
+    }
+     alert(selectionText);
+ }
+
+document.onmouseup = function() {
+    document.getElementById("console").innerHTML = selectText();
+}
+	
 </script>
 </head>
 <body><a></a>
 
 <select id="fileselect">
 	
-	<c:forEach var="file" items="${filelist}">
+	<c:forEach var="file" items="${doclist}">
 		<option>
-			${file.originalfilename }
+			${file.d_originalfilename }
 		</option>
 	</c:forEach>	
 </select>
-<!-- ./resources/ViewerJS/#../ViewerJS/오하라.odt ${selectedfile.originalfilename} -->
+
 <div id="sc">
-<iframe id="viewer" src="./resources/ViewerJS/#../ViewerJS/${selectedfile.savedfilename}" width="800" height="1000" allowfullscreen="" webkitallowfullscreen=""></iframe>
-${selectedfile.savedfilename}
+<iframe id="viewer" src="./resources/ViewerJS/#../document/${selectedfile.d_savedfilename}" width="800" height="1000" allowfullscreen="" webkitallowfullscreen=""></iframe>
+${selectedfile.d_savedfilename}
 </div>
 <a href="./resources/ViewerJS/Spring도서관리.pdf">으악</a>
-<form action="addfile" method ="post" enctype="multipart/form-data">
+<form action="docupload" method ="post" enctype="multipart/form-data">
 	<table>
 		<tr>
 			<td>파일</td>
@@ -98,6 +115,7 @@ ${selectedfile.savedfilename}
 		</tr>
 	</table>
 </form>
-<a href="javascript:capture()">캡챠</a>
+<input type=text id="ttext">
+<a href="javascript:selectText()">텍스트얻기</a>
 </body>
 </html>

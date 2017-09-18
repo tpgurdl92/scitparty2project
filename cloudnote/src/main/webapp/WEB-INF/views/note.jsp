@@ -42,6 +42,28 @@
         <script src="js/html5shiv.js"></script>
         <script src="js/respond.min.js"></script>
     <![endif]-->
+    <!-- 이하박세혁 -->
+    <script>
+    	function getSelectionText() {
+
+        var text = "";
+
+        if (window.getSelection) {
+
+            text = window.getSelection().toString();
+
+        } else if (document.selection && document.selection.type != "Control") {
+
+            text = document.selection.createRange().text;
+
+        }
+		
+       alert(text);
+    }
+
+    
+    </script>
+    
 </head>
 <body>
 	<!-- /////////////////////////////////////////Navigation -->
@@ -70,6 +92,7 @@
 					</div>
 				</div>
 				<div class="row">
+					<a href="javascript:getSelectionText()">번역</a>
 					<div>
 						<div style="float:left; width:45%; height:45%; overflow:scroll;">
 							<%@include file="viewer.jsp" %>
@@ -77,7 +100,7 @@
 						<div style="float:left; width:5%; height:5%">
 						</div>
 						<div style="float:left; width:45%; height:45%;overflow:scroll;">
-							<%@include file="editor.jsp" %>
+					
 						</div>
 					</div>
 					

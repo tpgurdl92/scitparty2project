@@ -19,6 +19,12 @@ public class BookDAO {
 	SqlSession sqlsession;
 	
 	
+	public ArrayList<BookVO> GetBookList(int m_num){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		ArrayList<BookVO> booklist = mapper.GetBookList(m_num);
+		return booklist;
+	}
+	
 	public ArrayList<BookselfVO> GetBookself(int m_num){
 		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
 		ArrayList<BookselfVO> bookselflist=mapper.GetBookself(m_num);

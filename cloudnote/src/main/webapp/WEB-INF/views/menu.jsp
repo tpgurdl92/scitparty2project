@@ -62,9 +62,10 @@
 					<li class="hidden"><a href="#page-top"></a></li>
 					<li><a class="page-scroll" href="">Home</a></li>
 					<li><a class="page-scroll" href="login">Login</a></li>
-					<li><a class="page-scroll" href="notice">Notice</a></li>
+					<li><a class="page-scroll" href="friend">friend</a></li>
 					<li><a class="page-scroll" href="bookshelf">Bookshelf</a></li>
 					<li><a class="page-scroll" href="writenote">WriteNote</a></li>
+					<li><a class="page-scroll" href="mypage">MyPage</a></li>
 				</ul>
 			</div>
 			<!-- /.navbar-collapse -->

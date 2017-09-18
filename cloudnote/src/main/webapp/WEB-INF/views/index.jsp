@@ -93,7 +93,7 @@
 	                     </tr>
 	                     <tr>
 	                        <td colspan="2">
-	                           <input type="button" class="btn btn-2" value="Join" onclick="javascript:joinForm()" /> <input
+	                           <input type="button" class="btn btn-2" value="Join" onclick="location.href='joinform'" /> <input
 	                           type="submit" class="btn btn-2" value="Login" /></td>
 	                     </tr>
 	                  </table>
