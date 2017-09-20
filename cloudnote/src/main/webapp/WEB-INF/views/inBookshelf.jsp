@@ -87,42 +87,23 @@
 				</div>
 				<div style="float: right;"></div>
 				<div class="row">
-					<div class="col-sm-3 box-item">
+					<c:forEach var="book" items="${booklist }">
+						<div class="col-sm-3 box-item">
 						<div class="cd-see-all"
 							style="margin-top: 0px; margin-bottom: 0px;">
 							<div class="wrap-img">
-								<a href="book"><img src="resources/images/book-icon_3.png" /></a>
+								<a href="openbook?booknum=${book.b_num}"><img src="resources/images/book-icon_3.png" /></a>
 							</div>
-							<h3 class="blue">title</h3>
+							<h3 class="blue">b_title</h3>
+							<div style="float:left; margin-left: 50px">
+								<a href="openbook?booknum=${book.b_num}&pagenum=1"><img src="./resources/images/read.png" style="width:60px; heigth:60px; margin-right: 20px;"></a>
+								<a href="writebook?booknum=${book.b_num}"><img src="./resources/images/pencil2.jpg" style="width:60px; heigth:60px"></a>
+							</div>
 						</div>
 					</div>
-					<div class="col-sm-3 box-item">
-						<div class="cd-see-all"
-							style="margin-top: 0px; margin-bottom: 0px;">
-							<div class="wrap-img">
-								<a href="book"><img src="resources/images/book-icon_2.png" /></a>
-							</div>
-							<h3 class="yellow">title</h3>
-						</div>
-					</div>
-					<div class="col-sm-3 box-item">
-						<div class="cd-see-all"
-							style="margin-top: 0px; margin-bottom: 0px;">
-							<div class="wrap-img">
-								<a href="book"><img src="resources/images/book-icon_4.png" /></a>
-							</div>
-							<h3 class="red">title</h3>
-						</div>
-					</div>
-					<div class="col-sm-3 box-item">
-						<div class="cd-see-all"
-							style="margin-top: 0px; margin-bottom: 0px;">
-							<div class="wrap-img">
-								<a href="#0"><img src="resources/images/book-icon_5.png" /></a>
-							</div>
-							<h3 class="green">title</h3>
-						</div>
-					</div>
+					</c:forEach>
+					
+					
 				</div>
 			</div>
 			<!-- 책 클릭 시 뜨는 내용 -->

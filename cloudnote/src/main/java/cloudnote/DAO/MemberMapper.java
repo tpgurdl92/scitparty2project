@@ -18,10 +18,19 @@ public interface MemberMapper {
 	
 	public void ApplyFriend(String alpplier_id, String friend_id);
 
+	//친주받은거 찾기
 	public ArrayList<FriendVO> SearchApp(String m_id);
 	
+	//내가친추한거 찾기
+	public ArrayList<FriendVO> SearchMyApp(String m_id);
 	
 	public void ConsentFriend(String friend_id,String m_id);
+	
+	//친구신청 온 거 거절하기
+	public void DeclineApp(String friend_id, String m_id);
+	
+	//요청 보낸거 취소하기
+	public void CancelApp(String m_id, String friend_id);
 	
 	public ArrayList<String> ShowFriend(String m_id);
 	

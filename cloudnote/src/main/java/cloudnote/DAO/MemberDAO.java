@@ -59,10 +59,28 @@ public class MemberDAO {
 		return applist;
 	}
 	
+	public ArrayList<FriendVO> SearchMyApp(String m_id){
+		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
+		ArrayList<FriendVO> myapplist = mapper.SearchMyApp(m_id);
+		return myapplist;
+		
+	}
+	
 	public void ConsentFriend(String friend_id, String m_id){
 		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
 		mapper.ConsentFriend(friend_id, m_id);
 		
+	}
+	
+	public void DeclineApp(String friend_id, String m_id){
+		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
+		mapper.DeclineApp(friend_id, m_id);
+		
+	}
+	
+	public void CancelApp(String m_id, String friend_id){
+		MemberMapper mapper =sqlsession.getMapper(MemberMapper.class);
+		mapper.CancelApp(m_id, friend_id);
 	}
 	
 	public ArrayList<String> ShowFriend(String m_id){

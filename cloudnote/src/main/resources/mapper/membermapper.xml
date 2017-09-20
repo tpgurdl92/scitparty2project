@@ -63,10 +63,19 @@
   	</insert>
   	
   	<!-- 나한테 친구신청한 목록 사람들 보기 App(Application)='신청'-->
-  	<select id="searchApp" parameterType="string" resultType="FriendVO">
+  	<select id="SearchApp" parameterType="string" resultType="FriendVO">
   		select * from friend
   		where
   		b_response_m_id=#{m_id} and
+  		a_consent = '1' and
+  		b_consent = '0'
+  	
+  	</select>
+  	<!-- 내가 신청한 거  -->
+  	<select id="SearchMyApp" parameterType="string" resultType="FriendVO">
+  		select * from friend
+  		where
+  		a_request_m_id=#{m_id} and
   		a_consent = '1' and
   		b_consent = '0'
   	
@@ -77,10 +86,31 @@
   		update friend set 
   		b_consent = '1'
 		where
-		a_request_m_id=#{1} and
-		b_response_m_id=#{2}
+		a_request_m_id=#{0} and
+		b_response_m_id=#{1}
   		
   	</update>
+  	
+  	<!-- 친구신청 거절하기 -->
+  	<update id="DeclineApp">
+  		update friend set
+  		b_consent = '2'
+  		where
+  		a_request_m_id=#{0} and
+  		b_response_m_id=#{1}
+  	
+  	</update>
+  	
+  	<!--  내가 신청한 친구요청 취소하기 -->
+  	<delete id="CancelApp">
+  		delete from friend
+  		where
+  		a_request_m_id=#{0} and
+  		b_response_m_id=#{1} and
+  		a_consent =1 and
+  		b_response =0
+  		
+  	</delete>
   	
   	<!-- 내 친구 리스트 보기 -->
   	<select id="ShowFriend" parameterType="string"  resultType="String">

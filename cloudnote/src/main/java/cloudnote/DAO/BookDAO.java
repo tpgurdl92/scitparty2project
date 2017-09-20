@@ -25,9 +25,9 @@ public class BookDAO {
 		return booklist;
 	}
 	
-	public ArrayList<BookselfVO> GetBookself(int m_num){
+	public ArrayList<BookselfVO> GetBookselfList(int m_num){
 		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
-		ArrayList<BookselfVO> bookselflist=mapper.GetBookself(m_num);
+		ArrayList<BookselfVO> bookselflist=mapper.GetBookselfList(m_num);
 		return bookselflist;
 		
 	}
@@ -38,9 +38,26 @@ public class BookDAO {
 		return booklist;
 	}
 	
-	public PageVO OpenBook(int booknum){
+	public void WriteNewBook(BookVO book){
 		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
-		PageVO page =mapper.OpenBook(booknum);
+		mapper.WriteNewBook(book);
+	}
+	
+	public void AddPage(int booknum, int pagenum){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		mapper.AddPage(booknum, pagenum);
+	}
+	
+	public int GetMakedBookNum(int m_num){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		int booknum=mapper.GetMakedBookNum(m_num);
+		return booknum;
+	}
+	
+	
+	public PageVO OpenBook(int booknum, int pagenum){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		PageVO page =mapper.OpenBook(booknum, pagenum);
 		return page;
 	}
 	
@@ -50,6 +67,17 @@ public class BookDAO {
 		return page;
 	}
 	
+	public ArrayList<Integer> OpenSharedBookself(String m_id){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		ArrayList<Integer> sharedbooklist =mapper.OpenSharedBookself(m_id);
+		return sharedbooklist;
+	}
+	
+	public BookVO GetBookInfo(int booknum){
+		BookMapper mapper = sqlsession.getMapper(BookMapper.class);
+		BookVO book=mapper.GetBookInfo(booknum);
+		return book;
+	}
 	
 	
 }

@@ -36,6 +36,21 @@ public class HomeController {
 		return "index";
 	}
 	
+	@RequestMapping(value = "translator", method = RequestMethod.GET)
+	public String translator(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		System.out.println("번역기");
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "translator";
+	}
+	
+	
 	@RequestMapping(value = "friend", method = RequestMethod.GET)
 	public String friend(Locale locale, Model model) {
 		logger.info("Welcome home! The client locale is {}.", locale);
@@ -48,6 +63,20 @@ public class HomeController {
 		model.addAttribute("serverTime", formattedDate );
 		
 		return "friend";
+	}
+	
+	@RequestMapping(value = "myfriend", method = RequestMethod.GET)
+	public String myfriend(Locale locale, Model model) {
+		logger.info("Welcome home! The client locale is {}.", locale);
+		
+		Date date = new Date();
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
+		
+		String formattedDate = dateFormat.format(date);
+		
+		model.addAttribute("serverTime", formattedDate );
+		
+		return "myfriend";
 	}
 	@RequestMapping(value = "bookshelf", method = RequestMethod.GET)
 	public String bookself(Locale locale, Model model) {

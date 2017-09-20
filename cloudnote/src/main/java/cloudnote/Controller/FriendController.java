@@ -65,36 +65,73 @@ public class FriendController {
 	 * @param model 친구리스트를 담을 모델
 	 * @return
 	 */
-	@RequestMapping(value="checkApp", method=RequestMethod.GET)
-	public String CheckApplictaion(HttpSession session, ArrayList<MemberVO> friendlist, Model model){
+	@RequestMapping(value="checkapp", method=RequestMethod.GET)
+	public String CheckApplictaion(HttpSession session, ArrayList<MemberVO> applist, Model model){
 		 String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
-		 ArrayList<FriendVO> applist= mdao.SearchApp(m_id);
-		 for(FriendVO friend : applist){
+		 ArrayList<FriendVO> alist= mdao.SearchApp(m_id);
+		 for(FriendVO friend : alist){
 			 MemberVO member =mdao.IDCheck(friend.getA_request_m_id());
-			 friendlist.add(member);
+			 System.out.println("리스트담기"+member);
+			 applist.add(member);
 		 }
-		 model.addAttribute("friendlist", friendlist);
-		 return "";
+		 session.setAttribute("applist", applist);
+		 return "redirect:checkmyapp";
 	}
 	
-	@RequestMapping(value="consentFriend", method=RequestMethod.GET)
-	public String ConsentFriend(HttpSession session, String friend_id){
+	@RequestMapping(value="checkmyapp", method = RequestMethod.GET)
+	public String CheckMyApplication(HttpSession session, ArrayList<MemberVO> myapplist){
+		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
+		ArrayList<FriendVO> friendlist =mdao.SearchMyApp(m_id);
+	
+		 for(FriendVO friend : friendlist){
+			 MemberVO member =mdao.IDCheck(friend.getB_response_m_id());
+			 myapplist.add(member);
+		 }
+		 session.setAttribute("myapplist", myapplist);
+		 return "friendmanaging";
+	
+	}
+	
+	
+	@RequestMapping(value="consentfriend", method=RequestMethod.GET)
+	public @ResponseBody String ConsentFriend(HttpSession session, String friend_id){
 		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
 		mdao.ConsentFriend(friend_id, m_id);
 		
 		
-		return "";
+		return friend_id;
+	}
+	//거절하기
+	@RequestMapping(value="declineapp", method=RequestMethod.GET)
+	public @ResponseBody String DeclineApp(HttpSession session, String friend_id){		
+		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
+		mdao.DeclineApp(friend_id, m_id);
+		
+		return friend_id;
+	}
+	
+	//내가 친구 신청한 거 취소하기
+	@RequestMapping(value="cancelapp", method=RequestMethod.GET)
+	public String CancelApp(HttpSession session, String friend_id){
+		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
+		mdao.CancelApp(m_id, friend_id);
+		
+		return "redirect:checkapp";
+		
 	}
 	
 	@RequestMapping(value="showfriend", method=RequestMethod.GET)
-	public String ShowFriend(HttpSession session, ArrayList<MemberVO> friendlist){
+	public String ShowFriend(HttpSession session, ArrayList<MemberVO> myfriendlist){
+		System.out.println("들어는 옴");
 		String m_id = ((MemberVO)session.getAttribute("member")).getM_id();
 		ArrayList<String> namelist =mdao.ShowFriend(m_id);
 		for(String name : namelist){
 			MemberVO member =mdao.IDCheck(name);
-			friendlist.add(member);
+			System.out.println("우리는 친구"+member);
+			myfriendlist.add(member);
 		}
-		return "";
+		session.setAttribute("myfriendlist", myfriendlist);
+		return "myfriend";
 		
 	}
 	

@@ -72,6 +72,7 @@
 					</div>
 				</div>
 				<div class="row">
+					<a href="checkapp">요청관리</a>
 					<div>
 						<form action="searchfriend" method="get">
 							<table id="table">
