@@ -9294,10 +9294,10 @@ function(t, e, i) {
         },
         getImages: function() {
             return this.filter(SL.models.Media.IMAGE.filter)
-        },
-        getVideos: function() {
-            return this.filter(SL.models.Media.VIDEO.filter)
         }
+//        getVideos: function() {
+//            return this.filter(SL.models.Media.VIDEO.filter)
+//        }
     }), SL("collections").TeamInvites = SL.collections.Paginatable.extend({
         init: function(t, e) {
             this._super(t, e || SL.models.Model, {
@@ -9724,7 +9724,8 @@ function(t, e, i) {
         filter: function(t) {
             return t.isSVG()
         }
-    }, SL.models.Media.VIDEO = {
+    }
+    , SL.models.Media.VIDEO = {
         id: "video",
         type: "Video",
         filter: function(t) {
@@ -10125,20 +10126,20 @@ function(t, e, i) {
         }
     }), SL("data").templates = {
         NEW_DECK_TEMPLATE: {
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 34%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 54%; left: 8%; top: 34%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", "</section>"].join("")
         },
         DEFAULT_TEMPLATES: [{
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 38%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 54%; left: 8%; top: 38%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", "</section>"].join("")
         }, {
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 27%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 37%;" data-layout-method="belowPreviousBlock">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle">', "<h2>Subtitle</h2>", "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 54%; left: 8%; top: 27%;">', '<div class="sl-block-content" data-placeholder-tag="h1" data-placeholder-text="Title Text">', "<h1>Title Text</h1>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 37%;" data-layout-method="belowPreviousBlock">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Subtitle">', "<h2>Subtitle</h2>", "</div>", "</div>", "</section>"].join("")
         }, {
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 27%;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 37%;" data-layout-method="belowPreviousBlock">', '<div class="sl-block-content">', "<ul>", "<li>Bullet One</li>", "<li>Bullet Two</li>", "<li>Bullet Three</li>", "</ul>", "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 54%; left: 8%; top: 27%;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 37%;" data-layout-method="belowPreviousBlock">', '<div class="sl-block-content">', "<ul>", "<li>Bullet One</li>", "<li>Bullet Two</li>", "<li>Bullet Three</li>", "</ul>", "</div>", "</div>", "</section>"].join("")
         }, {
             html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 40%; left: 5%; top: 15%; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left;">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 40%; left: 5%; top: 30%; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left;">', "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis.</p>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 40%; left: 55%; top: 15%; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left;">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 40%; left: 55%; top: 30%; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis." style="text-align: left;">', "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin urna odio, aliquam vulputate faucibus id, elementum lobortis felis. Mauris urna dolor, placerat ac sagittis quis.</p>", "</div>", "</div>", "</section>"].join("")
         }, {
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 90%; left: 30px; top: 58px; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="h1" style="font-size: 200%; text-align: left;">', "<h1>One<br>Two<br>Three</h1>", "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 50%; left: 30px; top: 58px; height: auto;">', '<div class="sl-block-content" data-placeholder-tag="h1" style="font-size: 200%; text-align: left;">', "<h1>One<br>Two<br>Three</h1>", "</div>", "</div>", "</section>"].join("")
         }, {
-            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 84%; left: 8%; top: 6%;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="image" style="width: 74%; height: 68%; left: 13%; top: 22%;">', '<div class="sl-block-content">', '<div class="editing-ui sl-block-overlay sl-block-placeholder"></div>', "</div>", "</div>", "</section>"].join("")
+            html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 54%; left: 8%; top: 6%;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="image" style="width: 74%; height: 68%; left: 13%; top: 22%;">', '<div class="sl-block-content">', '<div class="editing-ui sl-block-overlay sl-block-placeholder"></div>', "</div>", "</div>", "</section>"].join("")
         }, {
             html: ["<section>", '<div class="sl-block" data-block-type="text" style="width: 43%; left: 3%; top: 12%;">', '<div class="sl-block-content" data-placeholder-tag="h2" data-placeholder-text="Title Text" style="text-align: left;">', "<h2>Title Text</h2>", "</div>", "</div>", '<div class="sl-block" data-block-type="text" style="width: 43%; left: 3%; top: 24%;" data-layout-method="belowPreviousBlock">', '<div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat." style="z-index: 13; text-align: left;">', "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi nec metus justo. Aliquam erat volutpat.</p>", "</div>", "</div>", '<div class="sl-block" data-block-type="image" style="width: 47%; height: 90%; left: 50%; top: 5%;">', '<div class="sl-block-content">', '<div class="editing-ui sl-block-overlay sl-block-placeholder"></div>', "</div>", "</div>", "</section>"].join("")
         }, {
@@ -10365,8 +10366,8 @@ function(t, e, i) {
             }
         }
     }, SL.config = {
-        DEFAULT_SLIDE_WIDTH: 960,
-        DEFAULT_SLIDE_HEIGHT: 700,
+        DEFAULT_SLIDE_WIDTH: 600,
+        DEFAULT_SLIDE_HEIGHT: 760,
         DEFAULT_SLIDE_MARGIN: .05,
         DEFAULT_EXPORT_MARGIN: 0,
         EDITOR_MIN_SCALE: 1,
@@ -10632,13 +10633,13 @@ function(t, e, i) {
         AJAX_SEARCH: "/cloudnote/api/v1/search.json",
         AJAX_SEARCH_ORGANIZATION: "/cloudnote/api/v1/team/search.json",
         AJAX_GET_DECK: function(t) {
-            return "/cloudnote/api/v1/decks/" + t + ".json"
+            return "/cloudnote/page.json"
         },
         AJAX_CREATE_DECK: function() {
             return "/cloudnote/api/v1/decks.json"
         },
         AJAX_UPDATE_DECK: function(t) {
-            return "/cloudnote/api/v1/decks/" + t + ".json"
+            return "/cloudnote/get/page/update.json"
         },
         AJAX_PUBLISH_DECK: function(t) {
             return "/cloudnote/api/v1/decks/" + t + "/publish.json"
@@ -10676,7 +10677,7 @@ function(t, e, i) {
             return "/cloudnote/" + t + "/" + e + "/export"
         },
         AJAX_THUMBNAIL_DECK: function(t) {
-            return "/cloudnote/api/v1/decks/" + t + "/thumbnails.json"
+            return "/cloudnote/thumbnails.json"
         },
         AJAX_FORK_DECK: function(t) {
             return "/cloudnote/api/v1/decks/" + t + "/fork.json"
@@ -10774,8 +10775,8 @@ function(t, e, i) {
         AJAX_ACCESS_TOKENS_PASSWORD_AUTH: function(t) {
             return "/access_tokens/" + t + ".json"
         },
-        AJAX_SLIDE_TEMPLATES_LIST: "/cloudnote/api/v1/slide_templates.json",
-        AJAX_SLIDE_TEMPLATES_CREATE: "/cloudnote/api/v1/slide_templates.json",
+        AJAX_SLIDE_TEMPLATES_LIST: "/cloudnote/slide_templates.json",
+        AJAX_SLIDE_TEMPLATES_CREATE: "/cloudnote/slide_templates.json",
         AJAX_SLIDE_TEMPLATES_UPDATE: function(t) {
             return "/cloudnote/api/v1/slide_templates/" + t + ".json"
         },
@@ -10807,10 +10808,10 @@ function(t, e, i) {
         AJAX_SUBSCRIPTIONS_REACTIVATE: "/subscriptions/reactivate",
         AJAX_TEAMS_CREATE: "/teams.json",
         AJAX_TEAMS_REACTIVATE: "/subscriptions/reactivate.json",
-        AJAX_CHECK_STATUS: "/cloudnote/api/v1/status.json",
+        AJAX_CHECK_STATUS: "/cloudnote/status.json",
         AJAX_CHECK_URL: "/cloudnote/api/v1/urls",
-        AJAX_MEDIA_LIST: "/cloudnote/api/v1/media.json",
-        AJAX_MEDIA_CREATE: "/cloudnote/api/v1/media.json",
+        AJAX_MEDIA_LIST: "/cloudnote/media.json",
+        AJAX_MEDIA_CREATE: "/cloudnote/media.json",
         AJAX_MEDIA_READ: function(t) {
             return "/cloudnote/api/v1/media/" + t + ".json"
         },
@@ -10821,10 +10822,10 @@ function(t, e, i) {
             return "/cloudnote/api/v1/media/" + t + ".json"
         },
         AJAX_MEDIA_USAGE: "/cloudnote/api/v1/media/usage.json",
-        AJAX_MEDIA_TAG_LIST: "/cloudnote/api/v1/tags.json",
-        AJAX_MEDIA_TAG_CREATE: "/cloudnote/api/v1/tags.json",
+        AJAX_MEDIA_TAG_LIST: "/cloudnote/tags.json",
+        AJAX_MEDIA_TAG_CREATE: "/cloudnote/tags.json",
         AJAX_MEDIA_TAG_UPDATE: function(t) {
-            return "/cloudnote/api/v1/tags/" + t + ".json"
+            return "/cloudnote/tags/update.json"
         },
         AJAX_MEDIA_TAG_DELETE: function(t) {
             return "/cloudnote/api/v1/tags/" + t + ".json"
@@ -11869,7 +11870,7 @@ function(t, e, i) {
             return 1e4 > t ? t : t = SL.util.math.limitDecimals(t / 1e3, 1) + "k"
         },
         getCustomClassesFromLESS: function(t) {
-            var e = (t || "").match(/\/\/=[a-z0-9-_ \t]{2,}(?=\n)?/gi);
+        	var e = (t || "").match(/\/\/=[a-z0-9-_ \t]{2,}(?=\n)?/gi);
             return e ? e.map(function(t) {
                 return t = t.replace("//=", ""), t = t.trim(), t = t.toLowerCase(), t = t.replace(/\s/g, "-")
             }) : []
@@ -17098,12 +17099,12 @@ function(t, e, i) {
                 className: "sl-slide-background-prompt",
                 overlayOpacity: .2,
                 data: {
-                    items: [this.createColorOption(), this.createImageOption(), this.createVideoOption(), this.createIframeOption()]
+                    items: [this.createColorOption(), this.createImageOption(), this.createIframeOption()]
                 }
             }, t))
         },
         show: function() {
-            this._super.apply(this, arguments), this.checkVideoProcessingStatus(), this.syncColor(), this.syncImage(), this.syncVideo(), this.syncIframe()
+            this._super.apply(this, arguments), this.checkVideoProcessingStatus(), this.syncColor(), this.syncImage(), this.syncIframe()
         },
         removeBackgroundMedia: function(t) {
             this.detachMediaModels(), ["image", "size", "position", "video", "video-muted", "video-loop", "video-thumb", "video-processing", "media-id", "iframe", "interactive"].forEach(function(e) {
@@ -17219,10 +17220,7 @@ function(t, e, i) {
             this.config.slide.hasAttribute("data-background-video-processing") && this.config.slide.hasAttribute("data-background-media-id") && (this.videoModel || (this.videoModel = new SL.models.Video({
                 id: this.config.slide.getAttribute("data-background-media-id")
             })), this.videoModel.load().then(function() {
-                this.videoModel.isProcessed() ? this.config.slide.removeAttribute("data-background-video-processing", "true") : (this.videoModel.processingCompleted.add(this.onVideoProcessingCompleted), this.videoModel.processingFailed.add(this.onVideoProcessingFailed)), this.syncVideo()
-            }.bind(this), function() {
-                this.syncVideo()
-            }.bind(this)))
+                this.videoModel.isProcessed() ? this.config.slide.removeAttribute("data-background-video-processing", "true") : (this.videoModel.processingCompleted.add(this.onVideoProcessingCompleted), this.videoModel.processingFailed.add(this.onVideoProcessingFailed))}.bind(this)))
         },
         syncVideo: function() {
             this.videoElement.empty();
@@ -17909,7 +17907,7 @@ function(t, e, i) {
             }, t), this.x = 0, this.y = 0, this.isDown = !1, this.isOutside = !1, this.render(), this.bind()
         },
         render: function() {
-            this.domElement = $('<div class="sl-stream-pointer">'), this.domElement.html('<svg viewBox="0 0 24 24" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7,2l12,11.2l-5.8,0.5l3.3,7.3l-2.2,1l-3.2-7.4L7,18.5V2z"/></svg>')
+            this.domElement = $('<div class="sl-stream-pointer">'), this.domElement.html('<svg viewBox="0 0 36 36" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M7,2l12,11.2l-5.8,0.5l3.3,7.3l-2.2,1l-3.2-7.4L7,18.5V2z"/></svg>')
         },
         bind: function() {
             this.hide = this.hide.bind(this), this.paint = this.paint.bind(this), this.onMouseMove = this.onMouseMove.bind(this), this.onMouseLeave = this.onMouseLeave.bind(this), this.onMouseEnter = this.onMouseEnter.bind(this), this.onMouseDown = this.onMouseDown.bind(this), this.onMouseUp = this.onMouseUp.bind(this), this.onWindowResize = this.onWindowResize.bind(this), this.onStreamPointerChanged = this.onStreamPointerChanged.bind(this), this.broadcastPosition = $.throttle(this.broadcastPosition, SL.config.STREAM_POINTER_UPDATE_FREQUENCY), this.options.stream.pointerChanged.add(this.onStreamPointerChanged), this.options.publisher && ($(this.options.container).on("mousemove", this.onMouseMove), $(this.options.container).on("mouseleave", this.onMouseLeave), $(this.options.container).on("mouseenter", this.onMouseEnter), $(this.options.container).on("mousedown", this.onMouseDown))

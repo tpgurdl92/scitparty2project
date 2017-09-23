@@ -17,18 +17,21 @@
 <link
 	href="//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,600,700&amp;subset=latin,cyrillic-ext,greek-ext,greek,latin-ext,cyrillic"
 	rel="stylesheet" type="text/css" data-application-font="opensans">
+
 <link
-	href="//assets.slid.es/assets/slides/slides-985765429f68a85880426345fe156653.css"
+	href="resources/css/slides.css"
 	media="all" rel="stylesheet">
 <link
-	href="//assets.slid.es/assets/application-5ffb60aec58ee49dea17c95752f0bf72.css"
+	href="resources/css/application.css"
 	media="all" rel="stylesheet">
 <link
-	href="//assets.slid.es/assets/editor-v2-12b79795e8868f43eab26a58ae133168.css"
+	href="resources/css/editor_2.css"
 	media="all" rel="stylesheet">
 <link
-	href="//assets.slid.es/assets/deck-v2-373be343c31e7342ed6effb15e01eb48.css"
-	media="all" rel="stylesheet">
+	href="resources/css/deck.css"
+	media="all" rel="stylesheet">	
+	
+	
 <meta content="authenticity_token" name="csrf-param">
 <meta content="NFu1JFq+6VTnK1dsOEB4jcTUeSnLVC3PFdjAGurnnMw="
 	name="csrf-token">
@@ -56,8 +59,6 @@
 
 	}
 </script>
-
-
 <script id="user-css-input" type="text/template"></script>
 <style type="text/css"></style>
 <style id="ace_editor.css">
@@ -1299,7 +1300,6 @@
 </style>
 <style></style>
 <style id="user-css-output" type="text/css"></style>
-<script src="./resources/js/jquery-3.2.1.js"></script>
 <script src="//assets.slid.es/ckeditor/ckeditor.js?t=1"></script>
 <script type="text/javascript" src="https://assets.slid.es/ckeditor/config.js?t=04112016"></script>
 <link rel="stylesheet" type="text/css"
@@ -1394,40 +1394,29 @@
 			</div>
 
 			<div class="secondary" style="max-height: 474px;">				
-				<button class="button arrange no-arrow"
-					data-tooltip="Arrange slides" data-tooltip-alignment="r">
-					<span class="icon i-layers"></span><span class="close icon i-x"></span>
-				</button>				
+					
 			</div>
 
 			<div class="scroll-shadow-top" style="opacity: 0; top: 200.2px;"></div>
 			<div class="scroll-shadow-bottom" style="opacity: 1; bottom: 52px;"></div>
-
-			
-
-
 		</div>
-
 		
-
 		<article class="projector">
-			<div
-				class="reveal-viewport   theme-font-montserrat theme-color-white-blue">
+			<div class="reveal-viewport   theme-font-montserrat theme-color-white-blue">
 				<div class="reveal slide ready" role="application"
 					data-transition-speed="default" data-background-transition="slide">
-					<div class="slides" style="width: 960px; height: 700px;">
-						
-						<section data-id="e87bc4f91a847a05ec7eaaf4e13e53b2"
+					<div class="slides" style="width: 600px; height: 760px;">											
+						<section id="editor" data-id="e87bc4f91a847a05ec7eaaf4e13e53b2"
 							class="present" style="display: block;">
 							<div class="sl-block" data-block-type="text"
-								style="width: 806px; left: 77px; top: 331px; height: auto;"
+								style="width: 300px; left: 200px; top: 331px; height: auto;"
 								data-block-id="be541f9822ab6b5d0dc7ae66e7f44d19">
 								<div class="sl-block-content" data-placeholder-tag="h1"
 									data-placeholder-text="Title Text" style="z-index: 10;"
 									dir="ui">
 									<p>Hello World</p>
 								</div>
-							</div>
+							</div>							
 						</section>
 						
 					</div>
@@ -1461,44 +1450,26 @@
 					<div class="speaker-notes" data-prevent-swipe="" tabindex="0"></div>
 					<div class="pause-overlay"></div>
 					<div id="aria-status-div" aria-live="polite" aria-atomic="true"
-						style="position: absolute; height: 1px; width: 1px; overflow: hidden; clip: rect(1px, 1px, 1px, 1px);">
-						Hello World</div>
-					<div class="sl-block-grid">
-						<canvas class="sl-block-grid-inner" width="960" height="700"
-							style="left: 10px; top: 13px; width: 960px; height: 700px;"></canvas>
+						style="position: absolute; height: 1px; width: 1px; overflow: hidden;
+						 clip: rect(1px, 1px, 1px, 1px);">
+						Hello World
 					</div>
 				</div>
 			</div>
-
-			<div class="icon add-horizontal-slide show"
-				data-tooltip="Add new slide<br>(Hold shift for blank)"
-				data-tooltip-alignment="l" data-tooltip-delay="1500">
-				<span class="icon i-plus"></span>
-			</div>
-			<div class="icon add-vertical-slide show"
-				data-tooltip="Add new slide<br>(Hold shift for blank)"
-				data-tooltip-alignment="t" data-tooltip-delay="1500">
-				<span class="icon i-plus"></span>
-			</div>
-			<div class="slide-options" data-alignment="l"
-				style="left: 10px; top: 13px;">
-
-			</div>
-		</article>
-
-	</div>
+	</article>
+</div>
 
 	<script>
 		var SLConfig = {
 			"current_user" : {
-				"id" : 742158,
-				"username" : "hara",
-				"name" : null,
+				"id" : ${member.m_num},
+				"username" : "${member.m_name}",
+				"name" : "${member.m_name}",
 				"settings" : {
-					"id" : 592407,
+					"id" : ${member.m_num},
 					"present_controls" : true,
 					"present_upsizing" : true,
-					"present_pointer" : false,
+					"present_pointer" : true,
 					"present_notes" : true,
 					"editor_grid" : true,
 					"editor_snap" : true,
@@ -1514,20 +1485,20 @@
 				"storage_limit" : 262144000
 			},
 			"deck" : {
-				"id" : 1049791,
-				"slug" : "gfgfg",
-				"title" : "gfgfg",
+				"id" : ${book.b_num},
+				"slug" : "${book.b_title}" ,
+				"title" : "${book.b_title}" ,
 				"description" : "",
-				"width" : 960,
-				"height" : 700,
+				"width" : 600,
+				"height" : 760,
 				"visibility" : "all",
 				"published_at" : "2017-08-01T11:45:25.878Z",
 				"sanitize_messages" : null,
 				"thumbnail_url" : "https://s3.amazonaws.com/media-p.slid.es/thumbnails/4f5e75e95a8ad00ae5bbb10ad6741d1f/thumb.jpg?781631753",
 				"view_count" : 0,
 				"user" : {
-					"id" : 742158,
-					"username" : "hara",
+					"id" : ${member.m_num},
+					"username" : "${member.m_name}",
 					"name" : null,
 					"description" : null,
 					"thumbnail_url" : "https://www.gravatar.com/avatar/c1594e33a949c29ff9dde38cc4edda24?s=140\u0026d=https%3A%2F%2Fs3.amazonaws.com%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png",
@@ -1536,10 +1507,10 @@
 					"lite" : false,
 					"team_id" : null,
 					"settings" : {
-						"id" : 592407,
+						"id" : ${member.m_num},
 						"present_controls" : true,
 						"present_upsizing" : true,
-						"present_pointer" : false,
+						"present_pointer" : true,
 						"present_notes" : true
 					}
 				},
@@ -1590,8 +1561,8 @@
 					data-tooltip="Load custom fonts">
 					<span class="icon i-type"></span>
 				</button>
-			</header>
-		</div>
+			</div>
+		</header>
 		<div class="contents">
 			<div id="ace-less" class="editor"></div>
 			<div class="error"></div>
@@ -1602,7 +1573,7 @@
 		</footer>
 		<div class="resizer"></div>
 	</div>
-	<div class="toolbars visible" style="position:relative; top:0px; left:0px">
+	<div class="toolbars visible">
 		<div class="toolbars-inner">
 			<div class="toolbars-scroller" style="transform: translateX(0px);">
 				<div class="toolbar visible" data-type="add" style="left: 0px;">

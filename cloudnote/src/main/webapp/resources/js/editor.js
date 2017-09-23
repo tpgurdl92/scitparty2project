@@ -36464,11 +36464,11 @@ skriv.util = {
         paint: function() {
             var e = SL.util.getRevealSlideBounds(SL.editor.controllers.Markup.getCurrentSlide(), !0),
                 t = Math.round(window.devicePixelRatio || 1),
-                i = e.width * t,
-                n = e.height * t,
+                i = e.width * t,//맞춤 넓이
+                n = e.height * t,//맞춤 높이
                 o = this.getRows(),
                 r = this.getCols(),
-                s = Math.round(i / r),
+                s = Math.round(i / r),//개수
                 a = Math.round(n / o),
                 l = SL.view.getSlideSize({
                     scaled: !0
@@ -36476,8 +36476,9 @@ skriv.util = {
                 c = (window.innerWidth - SL.view.getSidebarWidth() - l.width) / 2,
                 d = (window.innerHeight - l.height) / 2;
             this.canvasElement.css({
-                left: Math.max(c, SL.view.getSlideMargin()),
-                top: d
+//                left: Math.max(c, SL.view.getSlideMargin()),
+                left: 144,
+                top: 6
             }), this.canvasElement.attr({
                 width: i,
                 height: n
@@ -37733,7 +37734,7 @@ skriv.util = {
         getSlideSize: function(e) {
             var t = Reveal.getConfig(),
                 i = 1;
-            return e && e.scaled && (i = Reveal.getScale()), {
+            return e && e.scaled && (i = 0.78/*Reveal.getScale()*/), {
                 width: t.width * i,
                 height: t.height * i
             }

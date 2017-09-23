@@ -1,130 +1,282 @@
+<%@page import="com.fasterxml.jackson.annotation.JsonInclude.Include"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="description"
-	content="Free Bootstrap Themes by 365Bootstrap dot com - Free Responsive Html5 Templates">
-<meta name="author" content="www.365bootstrap.com">
 
 <title>D2</title>
 
-<!-- Bootstrap Core CSS -->
-<link href="resources/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+.all_div {
+	width: 1500px;
+	height: 100%;
+}
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="resources/css/reset.css">
-<!-- CSS reset -->
-<link rel="stylesheet" href="resources/css/style.css">
-<link rel="stylesheet" href="resources/css/animated-logo.min.css">
-<!-- Logo -->
-<link rel="stylesheet" href="resources/css/our-team.css">
-<!-- Resource style -->
+.img_button1 {
+	position: fixed;
+	display: block;
+	top: 12px;
+	left: 680px;
+}
 
-<!-- Custom Fonts -->
-<link href="resources/font-awesome/css/font-awesome.min.css"
-	rel="stylesheet" type="text/css">
+.img_button2 {
+	position: fixed;
+	display: block;
+	top: 12px;
+	left: 50px;
+}
 
-<!-- Js -->
-<script src="resources/js/modernizr.js"></script>
-<script src="/resources/js/total.js"></script>
-<!-- 소켓임포트 -->
-<script type="text/javascript" src="resources/sockjs.js"></script>
-<!-- Modernizr -->
+.img_button3 {
+	position: fixed;
+	display: block;
+	top: 12px;
+	left: 12px;
+}
 
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-        <script src="js/html5shiv.js"></script>
-        <script src="js/respond.min.js"></script>
-    <![endif]-->
-    <!-- 이하박세혁 -->
-    <script>
-    	function getSelectionText() {
+.img_button4 {
+	position: fixed;
+	display: block;
+	top: 12px;
+	left: 90px;
+}
 
-        var text = "";
+.img_button5 {
+	position: fixed;
+	display: block;
+	top: 12px;
+	left: 130px;
+}
 
-        if (window.getSelection) {
+.top_div {
+	position: fixed;
+	display: block;
+	width: auto;
+	height: 50px;
+	top: 10px;
+	left: 4%;
+	top: 10px;
+}
 
-            text = window.getSelection().toString();
+.viewForm {
+	border: 1px solid green;
+	color: black;
+	float: left;
+	width: 685px;
+	height: 655px;
+	margin-top: 55px;
+	margin-left: 25px;
+}
 
-        } else if (document.selection && document.selection.type != "Control") {
+.writeForm {
+	border: 1px solid green;
+	color: black;
+	float: left;
+	width: 755px;
+	height: 700px;
+	margin-top: 10px;
+	margin-left: 25px;
+}
 
-            text = document.selection.createRange().text;
+.img_button {
+	float: right;
 
-        }
+}
+
+.filebox label {
+	color: #999;
+	line-height: normal;
+	vertical-align: middle;
+	background-color: #fdfdfd;
+	cursor: pointer;
+}
+
+.filebox input[type="file"] {
+	 /* 파일 필드 숨기기 */
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	border: 0;
+}
+</style>
+<script src="./resources/js/html2canvas.min.js"></script>
+<script type="text/javascript" src="./resources/js/jquery-3.2.1.js"></script>
+<script type="text/javascript">
+	var viewState = '';
+
+	$(function() {
 		
-       alert(text);
-    }
+		getDocList();
 
-    
-    </script>
-    
+		$("#getWebPage").click(function() {
+			var divImg = document.getElementById("viewImg");
+			var divViewer = document.getElementById('sc');
+			$("div").show()
+			divViewer.style.display='none';
+			var str = '';
+			divImg.innerHTML = str;
+			getWebPage();
+		});
+		
+		$('#viewSelect').change(function(){
+			var divViewer = document.getElementById('sc');
+			var divImg = document.getElementById('viewImg');
+			$("div").show()
+			divImg.style.display='none';
+			var selected = $(this).val();
+			console.log(selected);
+			document.getElementById("viewerjs").src = "./resources/ViewerJS/#../document/"+ selected;
+
+	     });
+	            
+	
+	});
+	
+	function upload()
+	  {
+		//FormData parameter에 담아줌
+		var formData = new FormData();
+		formData.append("upload", $('#input-file')[0].files[0]);		
+	   $.ajax({
+			url:'docupload',
+			method:'post',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function (result) {
+                $(result).each(function(index,item){
+                	$('#viewSelect').append($('<option>', { 
+                        value: item.d_savedfilename,
+                        text : item.d_originalfilename 
+                    }));
+                });
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+            }
+		});
+	   
+	  }
+	
+	function getDocList(){
+		$.ajax({
+			url:'getdoclist',
+			method:'get',
+            success: function (result) {
+                $(result).each(function(index,item){
+                	$('#viewSelect').append($('<option>', { 
+                        value: item.d_savedfilename,
+                        text : item.d_originalfilename 
+                    }));
+                });
+            },
+            error: function (e) {
+                console.log("ERROR : ", e);
+            }
+		});
+	}
+
+	
+	function getWebPage() {
+		var urlAddress = $('#url').val();
+		if(urlAddress == ''){
+			alert('참고할 페이지 주소를 입력하세요.');
+			return;
+		}	
+		$('#url').val('');
+		$.ajax({
+			url:'screenshot',
+			method:'post',
+			data:{				
+				URL: urlAddress
+			},					
+			beforeSend: function(){
+				SL.helpers.PageLoader.show({
+                    message: "Loading"
+                });
+			},
+			success:function(result){
+				SL.helpers.PageLoader.hide();
+				var div = document.getElementById("viewImg");
+				var str = result;
+				cropinit(str);
+			}
+		});
+		
+	}		
+	
+	function capture(){
+		html2canvas($("#sc"), {
+			onrendered: function(canvas) {
+				var img = canvas.toDataURL();
+			    $("#editor").append('<div class="sl-block" data-block-type="image" data-block-id="fefdfd7419bbe0a6eaf869b7d24eac9d" style="min-width: 30px; min-height: 30px;"><div class="sl-block-content" style="z-index: 12;"><img data-src="' + img + '>');    // section2 영역에 section1 을 이미지 capture 내용이 보여짐
+			}
+		});
+	}
+	
+	//텍스트가져오기
+// 	function selectText() {
+// 	    var selectionText = "";
+	    
+// 	    if (document.getSelection) {
+// 	        selectionText = document.getElementById('#viewr').getSelection();
+// 	    } else if (document.selection) {
+	       
+// 	    	selectionText = document.getElementById('#viewr').selection.createRange().text;
+// 	    }
+// 	     alert(selectionText);
+// 	 }
+
+// 	document.onmouseup = function() {
+// 	    document.getElementById("console").innerHTML = selectText();
+// 	}
+</script>
 </head>
 <body>
-	<!-- /////////////////////////////////////////Navigation -->
-	<%@ include file="menu.jsp"%>
-	<!-- /////////////////////////////////////////Content -->
-	<div id="page-content" class="index-page">
-		<!-- ////////////Content Box 02 -->
-		<section id="new" class="box-content box-2 box-style">
-			<div class="container">
-				<div class="row">
-					<blockquote style="font-size: 40px">Let's use it conveniently whenever and wherever.<br>
-					[For Developers, By Developers = D2]
-					</blockquote>
-				</div>
+	<!-- Content  -->
+	<div class="all_div">
+		<div class="top_div" style="font-size: 14px; background-color: white; left:0; top:12px;width:50%; height:50px;">
+			<a href="/cloudnote" class="img_button3"> <img src="resources/images/home.png"></a>
+			<a href="" class="img_button4"> <img src="resources/images/star.png"></a>
+			<a href="" class="img_button2"> <img src="resources/images/photo-camera.png"></a>
+			
+			<div class="filebox preview-image img_button5">
+				<form name="uploadFile" id="uploadFile" enctype="multipart/form-data">
+					<label for="input-file">
+						<img src="resources/images/folder.png">
+					</label> 
+					<input type="file" id="input-file" class="upload-hidden" onchange="upload()">
+				</form>
 			</div>
-		</section>
-
-		<!-- ////////////Content Box 01 -->
-		<section id="services" class="box-content box-1">
-			<div class="container">
-				<div class="row heading">
-					<div class="col-lg-12">
-						<h2>Join</h2>
-						<hr>
-						<div class="intro">Cloud Note</div>
-					</div>
-				</div>
-				<div class="row">
-					<a href="javascript:getSelectionText()">번역</a>
-					<div>
-						<div style="float:left; width:45%; height:45%; overflow:scroll;">
-							<%@include file="viewer.jsp" %>
-						</div>
-						<div style="float:left; width:5%; height:5%">
-						</div>
-						<div style="float:left; width:45%; height:45%;overflow:scroll;">
-					
-						</div>
-					</div>
-					
-				</div>
+			<select id="viewSelect" name="viewSelect" style=" position: absolute; left: 180px;width: 180px; height: 35px; font-size: 14px;">
+				<option value="noneselected">선택없음</option>
+			</select>
+			<div>
+				<input type="text" id="url" name="URL" placeholder="https://..."
+					style="position: fixed; left: 380px; width: 300px; height: 35px; font-size: 14px;">
+				<button class="img_button1" id="getWebPage">
+					<img src="resources/images/loupe.png">
+				</button>
 			</div>
-		</section>
+		</div>
+		<div id = "viewer" style="float:left;   position:absolute; left:0px; top:55px; width: 50%; height: 93%; overflow: scroll; text-align: center;">
+			
+			 <%@include file="newcrop.jsp" %> 
+			  <div id="sc" style=" display: none;">
+				<!-- <iframe id="viewerjs" style="position:absolute; left:0px; width:100%; height: 100%;" allowfullscreen="" webkitallowfullscreen=""></iframe> -->
+			</div> 
+			<div id="viewImg" style=" width:100%; height: 650px; display: none;"></div> -->
+		</div>
+		<%@include file="editor.jsp"%>
 	</div>
-	
-	<!-- jQuery -->
-	<script src="resources/js/jquery-2.1.1.js"></script>
-	<script src="resources/js/masonry.pkgd.min.js"></script>
-	<script src="resources/js/jquery.flexslider-min.js"></script>
-	<script src="resources/js/main.js"></script>
-	<!-- Resource jQuery -->
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="resources/js/bootstrap.min.js"></script>
-
-	<!-- Custom Theme JavaScript -->
-	<script src="resources/js/agency.js"></script>
-
-	<!-- Animated Top -->
-	<script src="resources/js/jquery.easing.min.js"></script>
-	<script src="resources/js/classie.js"></script>
-	<script src="resources/js/cbpAnimatedHeader.js"></script>
 </body>
 </html>

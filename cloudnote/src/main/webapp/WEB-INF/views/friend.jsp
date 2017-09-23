@@ -33,7 +33,7 @@
 <script src="resources/js/modernizr.js"></script>
 <script src="/resources/js/total.js"></script>
 <!-- 소켓임포트 -->
-<script type="text/javascript" src="resources/sockjs.js"></script>\
+<script type="text/javascript" src="resources/sockjs.js"></script>
 
 
 <!-- Modernizr -->
@@ -72,7 +72,6 @@
 					</div>
 				</div>
 				<div class="row">
-					<a href="checkapp">요청관리</a>
 					<div>
 						<form action="searchfriend" method="get">
 							<table id="table">

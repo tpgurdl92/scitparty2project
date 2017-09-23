@@ -11,62 +11,23 @@
 		b_authornum = #{m_num}
 	
 	</select>
-	<!-- 새 책 작성하기 -->
-	<insert id="WriteNewBook">
-		insert into book values(
-		b_num=b_seq.nextval,
-		b_title=#{b_title},
-		b_authornum=#{b_authornum},
-		b_writedate=sysdate,
-		b_bookselfnum=#{b_bookselfnum},
-		b_shareox=#{b_shareox}
-		)
-	</insert>
 	
-	<!-- 작성자가 책을 만들었을 때 생성된 책 번호가져오기 (첫 페이지객체를 생성하기 위함) -->
-	<select id="GetMakedBookNum" resultType="int">
-		select max(b_num) from (select * from book where authornum=#{0}) group by b_num
-	</select>
-	
-	
-	
-	
-	<!-- 회원번호로 책장리스트  가지고오기 -->
+	<!-- 책장들 가지고오기 -->
 	<select id="GetBookselfList" parameterType="int" resultType="BookselfVO">
 		select * from bookself where
 		bs_memberNum = #{m_num}
 	
 	</select>
-	<!-- 책장번호로 책장 안에 있는 책들 보기 -->
+	<!-- 책장안에있는 책들 보기 -->
 	<select id="OpenBookself" parameterType="int" resultType="BookVO">
 		select * from book where
 		b_bookselfnum = #{bookselfnum}
 	</select>
-	
-	<!-- 회원아이디로 공유받고 있는 책들 보기 -->
-	<select id="OpenSharedBookself">
-		select si_booknum from sharinginfo
-		where 
-		si_shared_id = #{m_id}
-	</select>
-	
-	<!-- 책 번호로 책의 객체 가져오기 -->
-	<select id="GetBookInfo" parameterType="int" resultType="BookVO">
-		select * from book where
-		b_num =#{booknum}
-	</select>
-	
-	<!-- 읽기용! 책번호로 책 첫 페이지 보기 -->
-	<select id="Openbook"   resultType="PageVO" >
+	<!-- 책 첫 페이지 보기 -->
+	<select id="Openbook"  parameterType="int" resultType="PageVO" >
 		select * from page where
-		p_booknum=#{0} and
-		p_pagenum = #{1}
-	</select>
-	<!-- 읽기용! 책 번호로 책 두 번 째 페이지 보기 -->
-	<select id="Openbook2"  resultType="PageVO" >
-		select * from page where
-		p_booknum=#{0} and
-		p_pagenum =#{1}
+		p_booknum=#{booknum} and
+		p_pagenum = 1
 	</select>
 	
 	<!-- 페이지 이동 하기 -->
@@ -77,13 +38,7 @@
 	</select>
 	
 	<!-- 페이지 추가하기 -->
-	<insert id="AddPage" >
-		insert into page values(
-			p_num=p_seq.nextval,
-			p_booknum=#{0},
-			p_pagenum=#{1},
-			p_contents="",
-			p_writedate=sysdate
-		)
-	</insert>
+	<select id="addpage" resultType="PageVO">
+	
+	</select>
 </mapper>

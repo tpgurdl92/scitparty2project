@@ -75,7 +75,7 @@
 	<!-- Navigation -->
 	
 	<!-- jQuery -->
-	<script src="resources/js/jquery-2.1.1.js"></script>
+	
 	<script src="resources/js/masonry.pkgd.min.js"></script>
 	<script src="resources/js/jquery.flexslider-min.js"></script>
 	<script src="resources/js/main.js"></script>
@@ -88,8 +88,8 @@
 	<script src="resources/js/agency.js"></script>
 
 	<!-- Animated Top -->
-	<script src="resources/js/jquery.easing.min.js"></script>
-	<script src="resources/js/classie.js"></script>
-	<script src="resources/js/cbpAnimatedHeader.js"></script>
+	<script src="./resources/js/jquery.easing.min.js"></script>
+	<script src="./resources/js/classie.js"></script>
+	<script src="./resources/js/cbpAnimatedHeader.js"></script>
 </body>
 </html>

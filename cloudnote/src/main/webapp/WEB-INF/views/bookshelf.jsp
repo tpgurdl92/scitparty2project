@@ -82,18 +82,31 @@
 				</div>
 				<div style="float: right;">
 					
-				
-				
+				</div>
 				<div class="row">
-					<c:forEach var="bookself" items="${bookselflist}">
+					<div class="col-sm-3 box-item">
 						<div class="wrap-img">
-							<a href="openbookself?bookselfnum=${bookself.bs_num}"><img src="resources/images/bookshelf_icon.png" /></a>
+							<a href="inBookshelf"><img src="resources/images/bookshelf_icon.png" /></a>
 						</div>
-						<h3 class="blue">${bookself.bs_title}</h3>
-					</c:forEach>
-								
-					
-					
+						<h3 class="blue">title</h3>
+					</div>
+					<div class="col-sm-3 box-item">
+						<div class="wrap-img">
+							<a href="inBookshelf"><img src="resources/images/bookshelf_icon.png" /></a>
+						</div>
+						<h3 class="yellow">title</h3>
+					</div>
+					<div class="col-sm-3 box-item">
+						<div class="wrap-img">
+							<a href="inBookshelf"><img src="resources/images/bookshelf_icon.png" /></a>
+						</div>
+						<h3 class="red">title</h3>
+					</div>
+					<div class="col-sm-3 box-item">
+						<div class="wrap-img">
+							<a href="inBookshelf"><img src="resources/images/bookshelf_icon.png" /></a>
+						</div>
+						<h3 class="green">Sharing</h3>
 					</div>
 				</div>	
 			</div>

@@ -27,6 +27,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import cloudnote.Util.MediaService;
 
 @Controller
 public class ScreenShotController {
@@ -37,15 +41,19 @@ public class ScreenShotController {
     protected static DesiredCapabilities dCaps;
     
     
-	@RequestMapping(value = "/screenshot", method = RequestMethod.POST)
-	public String showSupplementsPage(ModelMap model, HttpServletRequest request, HttpServletResponse response,
-			String URL, String selected) {
+	@RequestMapping(value= "screenshot", method = RequestMethod.POST)
+	public @ResponseBody String showSupplementsPage(ModelMap model, HttpServletRequest request, HttpServletResponse response,
+			@RequestParam String URL) {
+		MediaService ms = new MediaService();
+		/*if (selected.equals("pdf")) makePdf(URL);
+		else */
+		makePng(URL);
 		
+		response.setHeader("Content-Type", "text/html");
 		
-		if (selected.equals("pdf")) makePdf(URL);
-		else makePng(URL);
-		
-		return "screenshot";
+		String imageData = ms.fileToBinary("C://demo/screenshots/", "pic.png");
+		String img = "data:image/png;base64,"+imageData;
+		return img;
 	}
 	
 	private void makePng(String URL){
